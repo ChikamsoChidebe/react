@@ -158,7 +158,7 @@ function App() {
       <section className="landing fade-in">
         <div className="landing-content">
           <h1>Hi, I'm Chidebe Chikamso</h1>
-          <p> passionate full-stack web developer creating modern, scalable, and user-friendly applications.</p>
+          <p>A passionate full-stack web developer creating modern, scalable, and user-friendly applications.</p>
           <button className="cta-button">Explore My Work</button>
         </div>
         <div className="landing-visual">
