@@ -26,6 +26,26 @@ body {
   z-index: 1000;
 }
 
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px; /* Initially hidden */
+  width: 250px;
+  height: 100%;
+  background: green;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.sidebar.open {
+  right: 0; /* Slide in when open */
+}
+
 .logo h1 {
   font-size: 2rem;
   font-family: monospace;
@@ -43,6 +63,10 @@ body {
   color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
 }
 
 .menu-icon {

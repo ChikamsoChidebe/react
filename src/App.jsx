@@ -155,17 +155,21 @@ function App() {
         <div className="logo">
           <h1>C</h1> {/* Logo as the letter "C" */}
         </div>
-        <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
+        <button className="menu-icon" onClick={toggleMenu}>
+          {menuOpen ? <FaTimes /> : <FaBars />} {/* Toggle between menu and close icons */}
+        </button>
+      </header>
+
+      {/* Sidebar */}
+      <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
+        <nav className="nav-links">
           <a href="#about" onClick={toggleMenu}>About</a>
           <a href="#portfolio" onClick={toggleMenu}>Portfolio</a>
           <a href="#pricing" onClick={toggleMenu}>Pricing</a>
           <a href="#faq" onClick={toggleMenu}>FAQ</a>
           <a href="#contact" onClick={toggleMenu}>Contact</a>
         </nav>
-        <button className="menu-icon" onClick={toggleMenu}>
-          {menuOpen ? <FaTimes /> : <FaBars />} {/* Toggle between menu and close icons */}
-        </button>
-      </header>
+      </div>
 
       {/* Mobile Header */}
       <div className={`mobile-header ${isScrolled ? 'scrolled' : ''}`}>
