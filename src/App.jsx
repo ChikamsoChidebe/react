@@ -1,5 +1,5 @@
 import './App.css';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -153,7 +153,7 @@ function App() {
       {/* Header2 */}
       <header className="header2">
         <div className="logo">
-          <h1>C</h1> {/* Logo as the letter "C" */}
+          <h1><Fa500Px/></h1> {/* Logo as the letter "C" */}
         </div>
         <button className="menu-icon" onClick={toggleMenu}>
           {menuOpen ? <FaTimes /> : <FaBars />} {/* Toggle between menu and close icons */}
