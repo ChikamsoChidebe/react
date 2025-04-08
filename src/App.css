@@ -62,7 +62,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: green;
+  background:#8e44ad;
 }
 
 .spinner {
@@ -98,7 +98,7 @@ a:hover {
 
 .pricing-card h3 {
   font-size: 1.5rem;
-  color: green;
+  color:#8e44ad;
 }
 
 .pricing-card p {
@@ -120,7 +120,7 @@ a:hover {
 
 .hire-button {
   background: #ffd700;
-  color: green;
+  color:#8e44ad;
   padding: 0.8rem 2rem;
   font-size: 1rem;
   font-weight: bold;
@@ -155,7 +155,7 @@ a:hover {
 
 /* Header Styles */
 .header {
-  background: linear-gradient(135deg, green, #ffd700); /* Purple Gradient */
+  background: linear-gradient(135deg:#8e44ad, #ffd700); /* Purple Gradient */
   color: white;
   padding: 2rem 1rem;
   text-align: center;
@@ -207,7 +207,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, green, #ffd700);
+  background: linear-gradient(135deg:#8e44ad, #ffd700);
   color: white;
   text-align: center;
 }
@@ -230,7 +230,7 @@ a:hover {
 
 .cta-button {
   background: #ffd700;
-  color: green;
+  color:#8e44ad;
   padding: 0.8rem 2rem;
   font-size: 1.2rem;
   font-weight: bold;
@@ -274,7 +274,7 @@ a:hover {
 
 .section h2 {
   margin-top: 0;
-  color: green; /* Purple */
+  color:#8e44ad; /* Purple */
   font-size: 2rem;
   text-align: center;
   position: relative;
@@ -318,7 +318,7 @@ a:hover {
 
 .portfolio-item h3 {
   margin: 0.5rem 0;
-  color: green; /* Purple */
+  color:#8e44ad; /* Purple */
   font-size: 1.5rem;
 }
 
@@ -331,7 +331,7 @@ a:hover {
   display: inline-block;
   margin-top: 0.5rem;
   color: white;
-  background: green; /* Purple */
+  background:#8e44ad; /* Purple */
   padding: 0.5rem 1rem;
   border-radius: 5px;
   font-weight: bold;
@@ -357,7 +357,7 @@ a:hover {
 }
 
 .timeline-item h3 {
-  color: green;
+  color:#8e44ad;
   margin-bottom: 0.5rem;
 }
 
@@ -404,7 +404,7 @@ a:hover {
   justify-content: center;
   flex-direction: column;
   margin: 0.5rem;
-  color: green; /* Purple */
+  color:#8e44ad; /* Purple */
   font-weight: bold;
   text-decoration: none;
   font-size: 1.2rem;
@@ -420,7 +420,7 @@ a:hover {
 .footer {
   text-align: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, green, #ffd700); 
+  background: linear-gradient(135deg:#8e44ad, #ffd700); 
   color: white;
   margin-top: 2rem;
   font-size: 0.9rem;
@@ -484,7 +484,7 @@ a:hover {
 
 .slide p {
   font-size: 1.2rem;
-  color: green;
+  color:#8e44ad;
 }
 
 /* Stats Section */
@@ -501,7 +501,7 @@ a:hover {
 
 .stat-item h3 {
   font-size: 2rem;
-  color: green;
+  color:#8e44ad;
 }
 
 .stat-item p {
@@ -520,7 +520,7 @@ a:hover {
 
 .status-bar-fill {
   height: 100%;
-  background: green;
+  background:#8e44ad;
   transition: width 0.3s ease-in-out;
 }
 
@@ -537,7 +537,7 @@ a:hover {
 
 .logo img {
   width: 80px;
-  background-color: green;
+  background-color:#8e44ad;
 }
 
 .logo h1 {
@@ -571,7 +571,7 @@ a:hover {
 .guest-item p {
   margin-top: 0.5rem;
   font-size: 1rem;
-  color: green;
+  color:#8e44ad;
 }
 
 /* FAQ Section */
@@ -594,7 +594,7 @@ a:hover {
 
 .faq-question h3 {
   font-size: 1.2rem;
-  color: green;
+  color:#8e44ad;
 }
 
 .faq-icon {
@@ -615,7 +615,7 @@ a:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: green;
+  background:#8e44ad;
   color: white;
   padding: 1rem;
   position: fixed;
@@ -659,7 +659,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: green;
+  background:#8e44ad;
   color: white;
 }
 
@@ -688,7 +688,7 @@ body {
 .menu-bar {
   display: none;
   background: #ffd700;
-  color: green;
+  color:#8e44ad;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
@@ -708,7 +708,7 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background: green;
+  background:#8e44ad;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -753,7 +753,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: green;
+    background:#8e44ad;
     color: white;
     padding: 1rem;
     position: fixed;
