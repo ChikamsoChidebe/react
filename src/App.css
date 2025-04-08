@@ -5,11 +5,53 @@ body {
   padding: 0;
   line-height: 1.6;
   color: #333;
-  background: linear-gradient(135deg,   #eef4d8, #b6d2b6);
+  background: linear-gradient(135deg,   #f3f5ef, #dce4dc);
   overflow-x: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Header2 */
+.header2 {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: green;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo h1 {
+  font-size: 2rem;
+  font-family: monospace;
+  font-weight: bold;
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-icon {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* Fade-in Animation */
@@ -640,18 +682,6 @@ a:hover {
 .mobile-header a:hover {
   color: #ffd700;
 }
-/* General Styles */
-
-/* General Styles */
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  color: #333;
-  background: linear-gradient(135deg, #f4e2d8, #cbb4d4);
-  overflow-x: hidden;
-}
 
 /* Header */
 .header {
@@ -729,22 +759,53 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+  .header{
+    display: none;
+  }
   /* Header */
-  .header {
-    flex-direction: column;
+  .header2 {
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 12rem;
     text-align: center;
   }
 
-  .header nav {
+  .header2 nav {
     flex-direction: column;
     gap: 1rem;
   }
 
-  .header nav {
+  .header2 nav {
     display: none;
   }
 
   .menu-bar {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background:#54ad44;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-200%);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-icon {
     display: block;
   }
 

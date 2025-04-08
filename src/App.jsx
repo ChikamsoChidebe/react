@@ -1,5 +1,5 @@
 import './App.css';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown,  } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -9,6 +9,11 @@ function App() {
   const [orderCount, setOrderCount] = useState(0);
   const [yearCount, setyearCount] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // State to toggle the menu
+  
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -142,6 +147,23 @@ function App() {
             <a href="#faq">FAQ</a>
             <a href="#contact">Contact</a>
           </div>
+        </button>
+      </header>
+
+      {/* Header2 */}
+      <header className="header2">
+        <div className="logo">
+          <h1>C</h1> {/* Logo as the letter "C" */}
+        </div>
+        <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          <a href="#about" onClick={toggleMenu}>About</a>
+          <a href="#portfolio" onClick={toggleMenu}>Portfolio</a>
+          <a href="#pricing" onClick={toggleMenu}>Pricing</a>
+          <a href="#faq" onClick={toggleMenu}>FAQ</a>
+          <a href="#contact" onClick={toggleMenu}>Contact</a>
+        </nav>
+        <button className="menu-icon" onClick={toggleMenu}>
+          {menuOpen ? <FaTimes /> : <FaBars />} {/* Toggle between menu and close icons */}
         </button>
       </header>
 
