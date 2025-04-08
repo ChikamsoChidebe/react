@@ -175,9 +175,9 @@ function App() {
       <div className={`mobile-header ${isScrolled ? 'scrolled' : ''}`}>
         <a href="#about">About</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#pricing" >Pricing</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" className='contact'>Contact</a>
       </div>
 
       {/* landing  */}
