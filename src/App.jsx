@@ -11,6 +11,27 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
+
+  useEffect(() => {
     const handleScroll = () => {
       const elements = document.querySelectorAll('.fade-in');
       elements.forEach((el) => {
@@ -76,6 +97,7 @@ function App() {
     return () => {
       clearInterval(projectInterval);
       clearInterval(orderInterval);
+      clearInterval(yearInterval);
     };
   }, []);
 
@@ -99,7 +121,7 @@ function App() {
   return (
     <div className="app">
       {/* Header with Logo and Tagline */}
-      <header className="header">
+      <header className="header fade-in">
         <div className="logo">
           <h1>Chidebe Chikamso</h1>
           <p>Building the Future, One Line of Code at a Time</p>
@@ -346,7 +368,7 @@ function App() {
             <FaLinkedin /> LinkedIn
           </a>
           <a href="https://github.com/chidebe-chikamso" target="_blank" rel="noopener noreferrer">
-            <FaGithub /> GitHub
+            <FaGithub /> GitHubu
           </a>
           <a href="tel:+1234567890">
             <FaPhone /> Call Me
