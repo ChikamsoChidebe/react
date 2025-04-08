@@ -162,7 +162,7 @@ function App() {
           <button className="cta-button">Explore My Work</button>
         </div>
         <div className="landing-visual">
-          <img src="me2.jpg" alt="Custom Illustration" />
+          <img src="me3.jpg" alt="Custom Illustration" />
         </div>
       </section>
 
