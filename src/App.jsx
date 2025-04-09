@@ -155,21 +155,21 @@ function App() {
         <div className="logo">
           <h1><Fa500Px/></h1> {/* Logo as the letter "C" */}
         </div>
-        <button className="menu-icon" onClick={toggleMenu}>
+        {/* <button className="menu-icon" onClick={toggleMenu}>
           {menuOpen ? <FaTimes /> : <FaBars />} {/* Toggle between menu and close icons */}
-        </button>
+        {/* </button> */} 
       </header>
 
       {/* Sidebar */}
-      <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
-        <nav className="nav-links ">
+      {/* <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
+        <nav className="nav-links sidebar">
           <a href="#about" onClick={toggleMenu}>About</a>
           <a href="#portfolio" onClick={toggleMenu}>Portfolio</a>
           <a href="#pricing" onClick={toggleMenu}>Pricing</a>
           <a href="#faq" onClick={toggleMenu}>FAQ</a>
           <a href="#contact" onClick={toggleMenu}>Contact</a>
         </nav>
-      </div>
+      </div> */}
 
       {/* Mobile Header */}
       <div className={`mobile-header ${isScrolled ? 'scrolled' : ''}`}>
