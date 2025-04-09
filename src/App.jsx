@@ -1,5 +1,5 @@
 import './App.css';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -309,7 +309,7 @@ function App() {
               <li>Responsive Layout</li>
               <li>Email Support</li>
             </ul>
-            <button className="hire-button">Hire Me</button>
+            <button className="hire-button" onClick={() => window.location.href = '#contact'}>Hire Me</button>
           </div>
           <div className="pricing-card">
             <h3>Standard Plan</h3>
@@ -319,7 +319,7 @@ function App() {
               <li>Responsive Layout</li>
               <li>Priority Support</li>
             </ul>
-            <button className="hire-button">Hire Me</button>
+            <button className="hire-button" onClick={() => window.location.href = '#contact'}>Hire Me</button>
           </div>
           <div className="pricing-card">
             <h3>Premium Plan</h3>
@@ -329,7 +329,7 @@ function App() {
               <li>Custom Features</li>
               <li>24/7 Support</li>
             </ul>
-            <button className="hire-button">Hire Me</button>
+            <button className="hire-button" onClick={() => window.location.href = '#contact'}>Hire Me</button>
           </div>
         </div>
       </section>
@@ -368,7 +368,7 @@ function App() {
         <div className="faq">
           {[
             { question: 'What services do you offer?', answer: 'I offer full-stack web development, UI/UX design, and consulting services.' },
-            { question: 'What technologies do you specialize in?', answer: 'I specialize in React, Node.js, MongoDB, and modern front-end frameworks.' },
+            { question: 'What technologies do you specialize in?', answer: 'I specialize in React, Javascript, CSS, and modern front-end frameworks.' },
             { question: 'How can I hire you?', answer: 'You can hire me by selecting a pricing plan or contacting me directly through the contact section.' },
           ].map((faq, index) => (
             <div key={index} className="faq-item">
@@ -387,13 +387,16 @@ function App() {
         <h2>Contact Me</h2>
         <p>Feel free to reach out to me through any of the channels below:</p>
         <div className="contact-links" >
+          <a href="https://facebook.com/chikamso-chidebe-">
+            <FaFacebook /> Facebook
+          </a>
           <a href="mailto:chikamsochidebe@gmail.com">
             <FaEnvelope /> Email Me 
           </a>
           <a href="https://linkedin.com/in/chidebe-chikamso" target="_blank" rel="noopener noreferrer">
             <FaLinkedin /> LinkedIn
           </a>
-          <a href="https://github.com/chikamso-chidebe" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/ChikamsoChidebe" target="_blank" rel="noopener noreferrer">
             <FaGithub /> GitHub
           </a>
           <a href="tel:+2349039220171">
