@@ -205,6 +205,7 @@ a:hover {
 
 .hire-button:hover {
   transform: translateY(-5px);
+  color: white;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -704,6 +705,9 @@ a:hover {
   font-size: 1rem;
   color: #666;
 }
+
+
+
 /* Mobile Header */
 .mobile-header {
   display: flex;

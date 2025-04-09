@@ -251,7 +251,6 @@ function App() {
       </section>
 
       {/* Work Portfolio Section */}
-      {/* Work Portfolio Section */}
     <section id="portfolio" className="section fade-in">
         <h2>Work Portfolio</h2>
         <div className="portfolio-grid">
