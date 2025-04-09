@@ -15,10 +15,9 @@ body {
 /* Header2 */
 .header2 {
   display: none;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 1rem 2rem;
-  background: green;
   color: white;
   position: fixed;
   top: 0;
@@ -32,7 +31,7 @@ body {
   right: -250px; /* Initially hidden */
   width: 250px;
   height: 100%;
-  background: green;
+  background: black;
   color: white;
   display: flex;
   flex-direction: column;
@@ -116,12 +115,12 @@ body {
 
 a {
   text-decoration: none;
-  color: #ffd700;
+  color: red;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #ffcc00;
+  color: rgb(63, 175, 63);
 }
 
 /* Loading Screen */
@@ -130,14 +129,14 @@ a:hover {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: green;
+  background: black;
 }
 
 .spinner {
   width: 50px;
   height: 50px;
   border: 5px solid #fff;
-  border-top: 5px solid #ffd700;
+  border-top: 5px solid red;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -152,6 +151,8 @@ a:hover {
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -166,7 +167,7 @@ a:hover {
 
 .pricing-card h3 {
   font-size: 1.5rem;
-  color: green;
+  color: black;
 }
 
 .pricing-card p {
@@ -187,8 +188,8 @@ a:hover {
 }
 
 .hire-button {
-  background: #ffd700;
-  color: green;
+  background: red;
+  color: black;
   padding: 0.8rem 2rem;
   font-size: 1rem;
   font-weight: bold;
@@ -205,7 +206,7 @@ a:hover {
 
 a {
   text-decoration: none;
-  color: #ffd700; /* Yellow */
+  color: red; /* Yellow */
   transition: color 0.3s ease;
 }
 
@@ -223,7 +224,7 @@ a:hover {
 
 /* Header Styles */
 .header {
-  background: linear-gradient(135deg, green, #ffd700); /* Purple Gradient */
+  background: linear-gradient(to top, 135deg, black, red); /* Purple Gradient */
   color: white;
   padding: 2rem 1rem;
   text-align: center;
@@ -259,7 +260,7 @@ a:hover {
   display: block;
   width: 0;
   height: 2px;
-  background: #ffd700; /* Yellow */
+  background: red; /* Yellow */
   transition: width 0.3s;
   margin: 0 auto;
 }
@@ -275,7 +276,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, green, #ffd700);
+  background: linear-gradient(135deg, black, red );
   color: white;
   text-align: center;
 }
@@ -297,8 +298,8 @@ a:hover {
 }
 
 .cta-button {
-  background: #ffd700;
-  color: green;
+  background: red;
+  color: black;
   padding: 0.8rem 2rem;
   font-size: 1.2rem;
   font-weight: bold;
@@ -342,7 +343,7 @@ a:hover {
 
 .section h2 {
   margin-top: 0;
-  color: green; /* Purple */
+  color: black; /* Purple */
   font-size: 2rem;
   text-align: center;
   position: relative;
@@ -353,7 +354,7 @@ a:hover {
   display: block;
   width: 50px;
   height: 3px;
-  background: #ffd700; /* Yellow */
+  background: red; /* Yellow */
   margin: 0.5rem auto;
 }
 
@@ -371,8 +372,12 @@ a:hover {
 }
 
 .portfolio-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
-  background: #d8f4de;
+  background: rgb(243, 153, 153);
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -386,7 +391,7 @@ a:hover {
 
 .portfolio-item h3 {
   margin: 0.5rem 0;
-  color: green; /* Purple */
+  color: black; /* Purple */
   font-size: 1.5rem;
 }
 
@@ -396,10 +401,14 @@ a:hover {
 }
 
 .portfolio-item a {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 55%;
   margin-top: 0.5rem;
   color: white;
-  background: green; /* Purple */
+  background: black;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   font-weight: bold;
@@ -407,7 +416,8 @@ a:hover {
 }
 
 .portfolio-item a:hover {
-  background: #54ad44; /* Darker Purple */
+  background: white; /* Darker Purple */
+  color: #333;
 }
 
 /* Timeline */
@@ -425,7 +435,7 @@ a:hover {
 }
 
 .timeline-item h3 {
-  color: green;
+  color: black;
   margin-bottom: 0.5rem;
 }
 
@@ -453,7 +463,12 @@ a:hover {
 }
 
 .review .stars {
-  color: #ffd700; /* Yellow */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: yellow; /* Yellow */
   font-size: 1.2rem;
 }
 
@@ -472,7 +487,7 @@ a:hover {
   justify-content: center;
   flex-direction: column;
   margin: 0.5rem;
-  color: green; /* Purple */
+  color: black; /* Purple */
   font-weight: bold;
   text-decoration: none;
   font-size: 1.2rem;
@@ -481,14 +496,14 @@ a:hover {
 
 .contact-links a:hover {
   transform: scale(1.1);
-  color: #ffd500; 
+  color: red; 
 }
 
 /* Footer Styles */
 .footer {
   text-align: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, green, #ffd700); 
+  background: linear-gradient(135deg, black, red); 
   color: white;
   margin-top: 2rem;
   font-size: 0.9rem;
@@ -552,7 +567,7 @@ a:hover {
 
 .slide p {
   font-size: 1.2rem;
-  color: green;
+  color: black;
 }
 
 /* Stats Section */
@@ -569,7 +584,7 @@ a:hover {
 
 .stat-item h3 {
   font-size: 2rem;
-  color: green;
+  color: black;
 }
 
 .stat-item p {
@@ -588,7 +603,7 @@ a:hover {
 
 .status-bar-fill {
   height: 100%;
-  background: green;
+  background: black;
   transition: width 0.3s ease-in-out;
 }
 
@@ -605,12 +620,12 @@ a:hover {
 
 .logo img {
   width: 80px;
-  background-color: green;
+  background-color: black;
 }
 
 .logo h1 {
   font-size: 3rem;
-  color: yellow;
+  color: red;
 }
 
 .logo p {
@@ -639,7 +654,7 @@ a:hover {
 .guest-item p {
   margin-top: 0.5rem;
   font-size: 1rem;
-  color: green;
+  color: black;
 }
 
 /* FAQ Section */
@@ -662,7 +677,7 @@ a:hover {
 
 .faq-question h3 {
   font-size: 1.2rem;
-  color: green;
+  color: black;
 }
 
 .faq-icon {
@@ -683,7 +698,7 @@ a:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: green;
+  background: black;
   color: white;
   padding: 1rem;
   position: fixed;
@@ -706,7 +721,7 @@ a:hover {
 }
 
 .mobile-header a:hover {
-  color: #ffd700;
+  color: red;
 }
 
 /* Header */
@@ -715,7 +730,7 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: green;
+  background: black;
   color: white;
 }
 
@@ -743,8 +758,8 @@ a:hover {
 /* Menu Button for Mobile */
 .menu-bar {
   display: none;
-  background: #ffd700;
-  color: green;
+  background: red;
+  color: black;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
@@ -764,7 +779,7 @@ a:hover {
   position: absolute;
   top: 100%;
   left: 0;
-  background: green;
+  background: black;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -780,7 +795,7 @@ a:hover {
 }
 
 .dropdown-links a:hover {
-  color: #ffd700;
+  color: red;
 }
 
 /* Responsive Design */
@@ -840,7 +855,7 @@ a:hover {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: green;
+    background: black;
     color: white;
     padding: 1rem;
     position: fixed;
@@ -912,7 +927,7 @@ a:hover {
     position: absolute;
     top: 100%;
     left: 0;
-    background: green;
+    background: black;
     padding: 3rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -926,6 +941,6 @@ a:hover {
     flex-direction: column;
   }
   .about-content button{
-    color: green;
+    color: black;
   }
 }

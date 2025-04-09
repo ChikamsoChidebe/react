@@ -71,14 +71,14 @@ function App() {
     let orderCounter = 0;
     let yearCounter = 0;
     const yearInterval = setInterval(() => {
-      if (yearCounter < 10) {
+      if (yearCounter < 3) {
         yearCounter++;
         setyearCount(yearCounter);
       } else {
         clearInterval(yearInterval);
       }
     }
-    , 100);
+    , 1000);
     // Simulate counting for projects and orders
 
     const projectInterval = setInterval(() => {
@@ -88,7 +88,7 @@ function App() {
       } else {
         clearInterval(projectInterval);
       }
-    }, 50);
+    }, 100);
 
     const orderInterval = setInterval(() => {
       if (orderCounter < 120) {
@@ -97,7 +97,7 @@ function App() {
       } else {
         clearInterval(orderInterval);
       }
-    }, 30);
+    }, 100);
 
     return () => {
       clearInterval(projectInterval);
@@ -162,7 +162,7 @@ function App() {
 
       {/* Sidebar */}
       <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
-        <nav className="nav-links">
+        <nav className="nav-links ">
           <a href="#about" onClick={toggleMenu}>About</a>
           <a href="#portfolio" onClick={toggleMenu}>Portfolio</a>
           <a href="#pricing" onClick={toggleMenu}>Pricing</a>
@@ -243,7 +243,7 @@ function App() {
             <div className="status-bar">
               <div
                 className="status-bar-fill"
-                style={{ width: `${(yearCount / 10) * 100}%` }}
+                style={{ width: `${(yearCount / 3) * 100}%` }}
               ></div>
             </div>
           </div>
@@ -283,15 +283,15 @@ function App() {
         <h2>My Journey</h2>
         <div className="timeline">
           <div className="timeline-item">
-            <h3>2024</h3>
+            <h3>2023</h3>
             <p>Started my journey as a web developer, learning HTML, CSS, and JavaScript.</p>
           </div>
           <div className="timeline-item">
-            <h3>2025</h3>
+            <h3>2024</h3>
             <p>Built my first full-stack application using React and Node.js.</p>
           </div>
           <div className="timeline-item">
-            <h3>2026</h3>
+            <h3>2025</h3>
             <p>Worked on multiple large-scale projects and collaborated with global teams.</p>
           </div>
         </div>
@@ -387,16 +387,16 @@ function App() {
         <h2>Contact Me</h2>
         <p>Feel free to reach out to me through any of the channels below:</p>
         <div className="contact-links" >
-          <a href="mailto:chidebe.chikamso@example.com">
+          <a href="mailto:chikamsochidebe@gmail.com">
             <FaEnvelope /> Email Me 
           </a>
           <a href="https://linkedin.com/in/chidebe-chikamso" target="_blank" rel="noopener noreferrer">
             <FaLinkedin /> LinkedIn
           </a>
-          <a href="https://github.com/chidebe-chikamso" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/chikamso-chidebe" target="_blank" rel="noopener noreferrer">
             <FaGithub /> GitHubu
           </a>
-          <a href="tel:+1234567890">
+          <a href="tel:+2349039220171">
             <FaPhone /> Call Me
           </a>
         </div>
