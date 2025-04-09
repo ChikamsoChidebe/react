@@ -1,4 +1,7 @@
 /* General Styles */
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -312,6 +315,7 @@ a:hover {
 
 .cta-button:hover {
   transform: translateY(-5px);
+  color: white;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 

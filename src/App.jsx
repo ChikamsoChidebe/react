@@ -180,12 +180,12 @@ function App() {
         <a href="#contact" className='contact'>Contact</a>
       </div>
 
-      {/* landing  */}
+      {/* Landing Section */}
       <section className="landing fade-in">
         <div className="landing-content">
           <h1>Hi, I'm Chidebe Chikamso</h1>
           <p>A passionate full-stack web developer creating modern, scalable, and user-friendly applications.</p>
-          <button className="cta-button">Explore My Work</button>
+          <a href="#portfolio" className="cta-button">Explore My Work</a> {/* Updated to use an anchor link */}
         </div>
         <div className="landing-visual">
           <img src="me3.jpg" alt="Custom Illustration" />
@@ -251,7 +251,8 @@ function App() {
       </section>
 
       {/* Work Portfolio Section */}
-      <section id="portfolio" className="section fade-in">
+      {/* Work Portfolio Section */}
+    <section id="portfolio" className="section fade-in">
         <h2>Work Portfolio</h2>
         <div className="portfolio-grid">
           <div className="portfolio-item">
