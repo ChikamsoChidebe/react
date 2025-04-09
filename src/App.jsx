@@ -207,7 +207,7 @@ function App() {
               Driven by a love for problem-solving and a commitment to excellence, I am dedicated to building solutions that not only meet but exceed expectations. For me, web development is more than just a profession—it's a way to bring ideas to life and make a meaningful impact in the digital world.
             </p>
           )}
-          <button onClick={toggleAbout} className="toggle-button">
+          <button onClick={toggleAbout} className="toggle-button text-red-600">
             {showMoreAbout ? 'Show Less' : 'Read More'}
           </button>
         </div>
