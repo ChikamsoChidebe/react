@@ -394,7 +394,7 @@ function App() {
             <FaLinkedin /> LinkedIn
           </a>
           <a href="https://github.com/chikamso-chidebe" target="_blank" rel="noopener noreferrer">
-            <FaGithub /> GitHubu
+            <FaGithub /> GitHub
           </a>
           <a href="tel:+2349039220171">
             <FaPhone /> Call Me
