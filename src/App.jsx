@@ -1,5 +1,5 @@
 import './App.css';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp, FaWhatsappSquare } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -396,8 +396,8 @@ function App() {
           <a href="https://linkedin.com/in/chidebe-chikamso" target="_blank" rel="noopener noreferrer">
             <FaLinkedin /> LinkedIn
           </a>
-          <a href="https://github.com/ChikamsoChidebe" target="_blank" rel="noopener noreferrer">
-            <FaGithub /> GitHub
+          <a href="https://wa.me/2349039220171" target="_blank" rel="noopener noreferrer">
+            <FaWhatsapp /> Whatsapp
           </a>
           <a href="tel:+2349039220171">
             <FaPhone /> Call Me
