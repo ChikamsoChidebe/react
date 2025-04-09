@@ -17,7 +17,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  padding-top: 1.7rem;
+  padding-top: 1rem;
   color: white;
   position: fixed;
   top: 0;
@@ -619,6 +619,10 @@ a:hover {
 .logo {
   text-align: center;
   margin-top: 0.5rem;
+}
+.logo1{
+  color: red;
+  padding-top: 1.2rem;
 }
 
 .logo img {

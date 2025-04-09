@@ -152,7 +152,7 @@ function App() {
 
       {/* Header2 */}
       <header className="header2">
-        <div className="logo">
+        <div className="logo1">
           <h1><Fa500Px/></h1> {/* Logo as the letter "C" */}
         </div>
         {/* <button className="menu-icon" onClick={toggleMenu}>
