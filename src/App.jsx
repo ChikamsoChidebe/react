@@ -153,7 +153,7 @@ function App() {
       {/* Header2 */}
       <header className="header2">
         <div className="logo1">
-          <h1><Fa500Px/></h1> {/* Logo as the letter "C" */}
+          <h1><Fa500Px className='rotating-icon'/></h1> {/* Logo as the letter "C" */}
         </div>
         {/* <button className="menu-icon" onClick={toggleMenu}>
           {menuOpen ? <FaTimes /> : <FaBars />} {/* Toggle between menu and close icons */}
