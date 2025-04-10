@@ -387,7 +387,10 @@ function App() {
         <h2>Contact Me</h2>
         <p>Feel free to reach out to me through any of the channels below:</p>
         <div className="contact-links" >
-          <a href="https://facebook.com/chikamso-chidebe-">
+          <a href="https://wa.me/2349039220171" target="_blank" rel="noopener noreferrer">
+            <FaWhatsapp /> Whatsapp
+          </a>
+          <a href="https://m.me/chidebe-chikamso">
             <FaFacebook /> Facebook
           </a>
           <a href="mailto:chikamsochidebe@gmail.com">
@@ -399,9 +402,7 @@ function App() {
           <a href="https://github.com/ChikamsoChidebe" target="_blank" rel="noopener noreferrer">
             <FaGithub /> GitHub
           </a>
-          <a href="https://wa.me/2349039220171" target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp /> Whatsapp
-          </a>
+          
           <a href="tel:+2349039220171">
             <FaPhone /> Call Me
           </a>
