@@ -928,7 +928,6 @@ a:hover {
   
 }
 
-/* Add rotation animation */
 /* Add rotation and glowing animation */
 @keyframes rotateSideways {
   0% {
@@ -982,5 +981,8 @@ a:hover {
   }
   .about-content button{
     color: black;
+  }
+  .toggle-button{
+    color: red;
   }
 }
