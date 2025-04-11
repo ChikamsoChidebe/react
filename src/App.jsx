@@ -1,4 +1,5 @@
 import './App.css';
+import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
@@ -10,6 +11,12 @@ function App() {
   const [yearCount, setyearCount] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to toggle the menu
+
+  // Animation Variants for Framer Motion
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 30 }, // Initial state
+    visible: { opacity: 1, y: 0 }, // Final state
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -153,7 +160,7 @@ function App() {
         </div>
         <nav>
           <a href="#about">About</a>
-          <a href="#portfolio">Portfolio</a>
+          <a href="#portfolio">Portfolio</a>   
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
@@ -201,6 +208,14 @@ function App() {
       </div>
 
       {/* Landing Section */}
+      <motion.section
+        className="landing"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the section is visible
+      >
       <section className="landing fade-in ">
         <div className="landing-content">
           <h1>Hi, I'm Chidebe Chikamso</h1>
@@ -211,67 +226,97 @@ function App() {
           <img src="me3.jpg" alt="Custom Illustration" />
         </div>
       </section>
+      </motion.section>
 
       {/* About Me Section */}
-      <section id="about" className="section fade-in">
-        <h2>About Me</h2>
-        <div className="about-content">
-          <p>
-            I specialize in building seamless digital experiences by combining clean code with intuitive design. With expertise in both front-end and back-end technologies, I strive to deliver high-quality solutions that solve real-world problems.
-          </p>
-          {showMoreAbout && (
+      <motion.section
+        id="about"
+        className="section"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <section id="about" className="section fade-in">
+          <h2>About Me</h2>
+          <div className="about-content">
             <p>
-              Over the years, I’ve worked on diverse projects ranging from e-commerce platforms to dynamic dashboards. I enjoy collaborating with teams, learning new technologies, and pushing the boundaries of what's possible in web development.
-              On the front end, I specialize in crafting responsive and visually appealing interfaces using modern frameworks like React, ensuring that every design is both functional and aesthetically pleasing. On the back end, I excel in building robust and scalable systems with Node.js, Express, and MongoDB, enabling efficient data management and secure application performance. <br />
-               Collaboration and continuous learning are at the core of my work ethic. I thrive in team environments, where I can contribute to innovative projects while learning from others. Whether it's developing an e-commerce platform, a dynamic dashboard, or a custom web application, I approach every project with a focus on clean code, intuitive design, and delivering value to users. <br />
-              Driven by a love for problem-solving and a commitment to excellence, I am dedicated to building solutions that not only meet but exceed expectations. For me, web development is more than just a profession—it's a way to bring ideas to life and make a meaningful impact in the digital world.
+              I specialize in building seamless digital experiences by combining clean code with intuitive design. With expertise in both front-end and back-end technologies, I strive to deliver high-quality solutions that solve real-world problems.
             </p>
-          )}
-          <button onClick={toggleAbout} className="toggle-button text-red-600">
-            {showMoreAbout ? 'Show Less' : 'Read More'}
-          </button>
-        </div>
-      </section>
+            {showMoreAbout && (
+              <p>
+                Over the years, I’ve worked on diverse projects ranging from e-commerce platforms to dynamic dashboards. I enjoy collaborating with teams, learning new technologies, and pushing the boundaries of what's possible in web development.
+                On the front end, I specialize in crafting responsive and visually appealing interfaces using modern frameworks like React, ensuring that every design is both functional and aesthetically pleasing. On the back end, I excel in building robust and scalable systems with Node.js, Express, and MongoDB, enabling efficient data management and secure application performance. <br />
+                Collaboration and continuous learning are at the core of my work ethic. I thrive in team environments, where I can contribute to innovative projects while learning from others. Whether it's developing an e-commerce platform, a dynamic dashboard, or a custom web application, I approach every project with a focus on clean code, intuitive design, and delivering value to users. <br />
+                Driven by a love for problem-solving and a commitment to excellence, I am dedicated to building solutions that not only meet but exceed expectations. For me, web development is more than just a profession—it's a way to bring ideas to life and make a meaningful impact in the digital world.
+              </p>
+            )}
+            <button onClick={toggleAbout} className="toggle-button text-red-600">
+              {showMoreAbout ? 'Show Less' : 'Read More'}
+            </button>
+          </div>
+        </section>
+        </motion.section>
 
-      {/* Stats Section */}
-      <section id="stats" className="section fade-in">
-        <h2>My Achievements</h2>
-        <div className="stats-grid">
-          <div className="stat-item">
-            <h3>{projectCount}+</h3>
-            <p>Projects Completed</p>
-            <div className="status-bar">
-              <div
-                className="status-bar-fill"
-                style={{ width: `${(projectCount / 50) * 100}%` }}
-              ></div>
+        {/* Stats Section */}
+        <motion.section
+          id="portfolio"
+          className="section"
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+        <section id="stats" className="section fade-in">
+          <h2>My Achievements</h2>
+          <div className="stats-grid">
+            <div className="stat-item">
+              <h3>{projectCount}+</h3>
+              <p>Projects Completed</p>
+              <div className="status-bar">
+                <div
+                  className="status-bar-fill"
+                  style={{ width: `${(projectCount / 50) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+            <div className="stat-item">
+              <h3>{orderCount}+</h3>
+              <p>Orders Delivered</p>
+              <div className="status-bar">
+                <div
+                  className="status-bar-fill"
+                  style={{ width: `${(orderCount / 120) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+            <div className="stat-item">
+              <h3>{yearCount}+</h3>
+              <p>Years Experience</p>
+              <div className="status-bar">
+                <div
+                  className="status-bar-fill"
+                  style={{ width: `${(yearCount / 3) * 100}%` }}
+                ></div>
+              </div>
             </div>
           </div>
-          <div className="stat-item">
-            <h3>{orderCount}+</h3>
-            <p>Orders Delivered</p>
-            <div className="status-bar">
-              <div
-                className="status-bar-fill"
-                style={{ width: `${(orderCount / 120) * 100}%` }}
-              ></div>
-            </div>
-          </div>
-          <div className="stat-item">
-            <h3>{yearCount}+</h3>
-            <p>Years Experience</p>
-            <div className="status-bar">
-              <div
-                className="status-bar-fill"
-                style={{ width: `${(yearCount / 3) * 100}%` }}
-              ></div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </motion.section>
 
       {/* Work Portfolio Section */}
-    <section id="portfolio" className="section fade-in">
+      <motion.section
+        id="portfolio"
+        className="section"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+      <section id="portfolio" className="section fade-in">
         <h2>Work Portfolio</h2>
         <div className="portfolio-grid">
           <div className="portfolio-item">
@@ -297,27 +342,47 @@ function App() {
           </div>
         </div>
       </section>
+      </motion.section>
 
       {/* Interactive Timeline Section */}
-      <section id="timeline" className="section fade-in">
-        <h2>My Journey</h2>
-        <div className="timeline">
-          <div className="timeline-item">
-            <h3>2023</h3>
-            <p>Started my journey as a web developer, learning HTML, CSS, and JavaScript.</p>
+      <motion.section
+        id="portfolio"
+        className="section"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <section id="timeline" className="section fade-in">
+          <h2>My Journey</h2>
+          <div className="timeline">
+            <div className="timeline-item">
+              <h3>2023</h3>
+              <p>Started my journey as a web developer, learning HTML, CSS, and JavaScript.</p>
+            </div>
+            <div className="timeline-item">
+              <h3>2024</h3>
+              <p>Built my first full-stack application using React and Node.js.</p>
+            </div>
+            <div className="timeline-item">
+              <h3>2025</h3>
+              <p>Worked on multiple large-scale projects and collaborated with global teams.</p>
+            </div>
           </div>
-          <div className="timeline-item">
-            <h3>2024</h3>
-            <p>Built my first full-stack application using React and Node.js.</p>
-          </div>
-          <div className="timeline-item">
-            <h3>2025</h3>
-            <p>Worked on multiple large-scale projects and collaborated with global teams.</p>
-          </div>
-        </div>
-      </section>
+        </section>
+      </motion.section>
 
-        {/* Pricing Plans Section */}
+      {/* Pricing Plans Section */}
+      <motion.section
+        id="portfolio"
+        className="section"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
       <section id="pricing" className="section fade-in">
         <h2>Pricing Plans</h2>
         <div className="pricing-grid">
@@ -353,8 +418,18 @@ function App() {
           </div>
         </div>
       </section>
+      </motion.section>
 
       {/* Testimonials Section */}
+      <motion.section
+        id="portfolio"
+        className="section"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
       <section id="testimonials" className="section fade-in">
         <h2>What People Say</h2>
         <div className="reviews-grid">
@@ -381,8 +456,17 @@ function App() {
           </div>
         </div>
       </section>
-
+      </motion.section>
       {/* FAQ Section */}
+      <motion.section
+        id="portfolio"
+        className="section"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
       <section id="faq" className="section fade-in">
         <h2>Frequently Asked Questions</h2>
         <div className="faq">
@@ -401,8 +485,18 @@ function App() {
           ))}
         </div>
       </section>
+      </motion.section>
 
       {/* Contact Section */}
+      <motion.section
+        id="portfolio"
+        className="section"
+        variants={fadeInVariant}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
       <section id="contact" className="section fade-in">
         <h2>Contact Me</h2>
         <p>Feel free to reach out to me through any of the channels below:</p>
@@ -428,7 +522,7 @@ function App() {
           </a>
         </div>
       </section>
-
+      </motion.section>
       <footer className="footer fade-in">
         <p>&copy; 2025 Chidebe Chikamso. All rights reserved.</p>
       </footer>
