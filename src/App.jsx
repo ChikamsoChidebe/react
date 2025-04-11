@@ -231,7 +231,6 @@ function App() {
         transition={{ duration: 2 }}
         viewport={{ once: true }}
       >
-      <section id="about" className="section fade-in">
         <h2>About Me</h2>
         <div className="about-content">
           <p>
@@ -249,7 +248,6 @@ function App() {
             {showMoreAbout ? 'Show Less' : 'Read More'}
           </button>
         </div>
-      </section>
       </motion.section>
 
       {/* Stats Section */}
@@ -261,7 +259,7 @@ function App() {
         transition={{ duration: 2 }}
         viewport={{ once: true }}
       >
-      <section id="stats" className="section fade-in">
+
         <h2>My Achievements</h2>
         <div className="stats-grid">
           <div className="stat-item">
@@ -295,11 +293,9 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
       </motion.section>
 
       {/* Work Portfolio Section */}
-    <section id="portfolio" className="section fade-in">
         <h2>Work Portfolio</h2>
         <div className="portfolio-grid">
           <div className="portfolio-item">
@@ -324,7 +320,6 @@ function App() {
             </a>
           </div>
         </div>
-      </section>
 
       {/* Interactive Timeline Section */}
       <motion.section
@@ -335,7 +330,6 @@ function App() {
         transition={{ duration: 2 }}
         viewport={{ once: true }}
       >
-      <section id="timeline" className="section fade-in">
         <h2>My Journey</h2>
         <div className="timeline">
           <div className="timeline-item">
@@ -351,7 +345,6 @@ function App() {
             <p>Worked on multiple large-scale projects and collaborated with global teams.</p>
           </div>
         </div>
-      </section>
       </motion.section>
 
         {/* Pricing Plans Section */}
@@ -363,7 +356,6 @@ function App() {
         transition={{ duration: 2 }}
         viewport={{ once: true }}
       >
-      <section id="pricing" className="section fade-in">
         <h2>Pricing Plans</h2>
         <div className="pricing-grid">
           <div className="pricing-card">
@@ -397,7 +389,6 @@ function App() {
             <button className="hire-button" onClick={() => window.location.href = '#contact'}>Hire Me</button>
           </div>
         </div>
-      </section>
       </motion.section>
       {/* Testimonials Section */}
       <motion.section
@@ -408,7 +399,6 @@ function App() {
         transition={{ duration: 2 }}
         viewport={{ once: true }}
       >
-      <section id="testimonials" className="section fade-in">
         <h2>What People Say</h2>
         <div className="reviews-grid">
           <div className="review">
@@ -433,7 +423,6 @@ function App() {
             <p>- Client 3</p>
           </div>
         </div>
-      </section>
       </motion.section>
 
       {/* FAQ Section */}
@@ -445,7 +434,6 @@ function App() {
         transition={{ duration: 2 }}
         viewport={{ once: true }}
       >
-      <section id="faq" className="section fade-in">
         <h2>Frequently Asked Questions</h2>
         <div className="faq">
           {[
@@ -462,7 +450,6 @@ function App() {
             </div>
           ))}
         </div>
-      </section>
       </motion.section>
 
       {/* Contact Section */}
