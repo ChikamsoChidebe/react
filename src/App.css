@@ -116,6 +116,31 @@ body {
   transform: translateX(0);
 }
 
+/* Initial state for fade-in effect */
+.section {
+  opacity: 0;
+  transform: translateY(30px); /* Move the section slightly down */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+
+/* When the section becomes visible */
+.section.visible {
+  opacity: 1;
+  transform: translateY(0); /* Reset the position */
+}
+/* Initial state for fade-in effect */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px); /* Slight downward movement */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+
+/* When the section becomes visible */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0); /* Reset position */
+}
+
 a {
   text-decoration: none;
   color: red;

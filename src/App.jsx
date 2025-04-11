@@ -1,4 +1,5 @@
 import './App.css';
+import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
@@ -10,6 +11,26 @@ function App() {
   const [yearCount, setyearCount] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to toggle the menu
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // Add 'visible' class when in viewport
+          }
+        });
+      },
+      { threshold: 0.1 } // Trigger when 10% of the section is visible
+    );
+
+    const sections = document.querySelectorAll('.section');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
   
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -126,7 +147,7 @@ function App() {
   return (
     <div className="app">
       {/* Header with Logo and Tagline */}
-      <header className="header fade-in">
+      <header className="header fade-in ">
         <div className="logo">
           <h1>Chidebe Chikamso</h1>
           <p>Building the Future, One Line of Code at a Time</p>
@@ -181,7 +202,14 @@ function App() {
       </div>
 
       {/* Landing Section */}
-      <section className="landing fade-in">
+      <motion.section
+        className="landing"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+        viewport={{ once: true }}
+      >
+      <section className="landing fade-in ">
         <div className="landing-content">
           <h1>Hi, I'm Chidebe Chikamso</h1>
           <p>A passionate full-stack web developer creating modern, scalable, and user-friendly applications.</p>
@@ -191,8 +219,18 @@ function App() {
           <img src="me3.jpg" alt="Custom Illustration" />
         </div>
       </section>
+      </motion.section>
 
       {/* About Me Section */}
+      {/* About Me Section */}
+      <motion.section
+        id="about"
+        className="section"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+        viewport={{ once: true }}
+      >
       <section id="about" className="section fade-in">
         <h2>About Me</h2>
         <div className="about-content">
@@ -212,8 +250,17 @@ function App() {
           </button>
         </div>
       </section>
+      </motion.section>
 
       {/* Stats Section */}
+      <motion.section
+        id="portfolio"
+        className="section"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+        viewport={{ once: true }}
+      >
       <section id="stats" className="section fade-in">
         <h2>My Achievements</h2>
         <div className="stats-grid">
@@ -249,6 +296,7 @@ function App() {
           </div>
         </div>
       </section>
+      </motion.section>
 
       {/* Work Portfolio Section */}
     <section id="portfolio" className="section fade-in">
@@ -279,6 +327,14 @@ function App() {
       </section>
 
       {/* Interactive Timeline Section */}
+      <motion.section
+        id="portfolio"
+        className="section"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+        viewport={{ once: true }}
+      >
       <section id="timeline" className="section fade-in">
         <h2>My Journey</h2>
         <div className="timeline">
@@ -296,8 +352,17 @@ function App() {
           </div>
         </div>
       </section>
+      </motion.section>
 
         {/* Pricing Plans Section */}
+        <motion.section
+        id="portfolio"
+        className="section"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+        viewport={{ once: true }}
+      >
       <section id="pricing" className="section fade-in">
         <h2>Pricing Plans</h2>
         <div className="pricing-grid">
@@ -333,8 +398,16 @@ function App() {
           </div>
         </div>
       </section>
-
+      </motion.section>
       {/* Testimonials Section */}
+      <motion.section
+        id="portfolio"
+        className="section"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+        viewport={{ once: true }}
+      >
       <section id="testimonials" className="section fade-in">
         <h2>What People Say</h2>
         <div className="reviews-grid">
@@ -361,8 +434,17 @@ function App() {
           </div>
         </div>
       </section>
+      </motion.section>
 
       {/* FAQ Section */}
+      <motion.section
+        id="portfolio"
+        className="section"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+        viewport={{ once: true }}
+      >
       <section id="faq" className="section fade-in">
         <h2>Frequently Asked Questions</h2>
         <div className="faq">
@@ -381,6 +463,7 @@ function App() {
           ))}
         </div>
       </section>
+      </motion.section>
 
       {/* Contact Section */}
       <section id="contact" className="section fade-in">
