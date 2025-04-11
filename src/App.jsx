@@ -1,5 +1,4 @@
 import './App.css';
-import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
@@ -202,13 +201,6 @@ function App() {
       </div>
 
       {/* Landing Section */}
-      <motion.section
-        className="landing"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-        viewport={{ once: true }}
-      >
       <section className="landing fade-in ">
         <div className="landing-content">
           <h1>Hi, I'm Chidebe Chikamso</h1>
@@ -219,18 +211,9 @@ function App() {
           <img src="me3.jpg" alt="Custom Illustration" />
         </div>
       </section>
-      </motion.section>
 
       {/* About Me Section */}
-      {/* About Me Section */}
-      <motion.section
-        id="about"
-        className="section"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-        viewport={{ once: true }}
-      >
+      <section id="about" className="section fade-in">
         <h2>About Me</h2>
         <div className="about-content">
           <p>
@@ -248,18 +231,10 @@ function App() {
             {showMoreAbout ? 'Show Less' : 'Read More'}
           </button>
         </div>
-      </motion.section>
+      </section>
 
       {/* Stats Section */}
-      <motion.section
-        id="portfolio"
-        className="section"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-        viewport={{ once: true }}
-      >
-
+      <section id="stats" className="section fade-in">
         <h2>My Achievements</h2>
         <div className="stats-grid">
           <div className="stat-item">
@@ -293,9 +268,10 @@ function App() {
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Work Portfolio Section */}
+    <section id="portfolio" className="section fade-in">
         <h2>Work Portfolio</h2>
         <div className="portfolio-grid">
           <div className="portfolio-item">
@@ -320,16 +296,10 @@ function App() {
             </a>
           </div>
         </div>
+      </section>
 
       {/* Interactive Timeline Section */}
-      <motion.section
-        id="portfolio"
-        className="section"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-        viewport={{ once: true }}
-      >
+      <section id="timeline" className="section fade-in">
         <h2>My Journey</h2>
         <div className="timeline">
           <div className="timeline-item">
@@ -345,17 +315,10 @@ function App() {
             <p>Worked on multiple large-scale projects and collaborated with global teams.</p>
           </div>
         </div>
-      </motion.section>
+      </section>
 
         {/* Pricing Plans Section */}
-        <motion.section
-        id="portfolio"
-        className="section"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-        viewport={{ once: true }}
-      >
+      <section id="pricing" className="section fade-in">
         <h2>Pricing Plans</h2>
         <div className="pricing-grid">
           <div className="pricing-card">
@@ -389,16 +352,10 @@ function App() {
             <button className="hire-button" onClick={() => window.location.href = '#contact'}>Hire Me</button>
           </div>
         </div>
-      </motion.section>
+      </section>
+
       {/* Testimonials Section */}
-      <motion.section
-        id="portfolio"
-        className="section"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-        viewport={{ once: true }}
-      >
+      <section id="testimonials" className="section fade-in">
         <h2>What People Say</h2>
         <div className="reviews-grid">
           <div className="review">
@@ -423,17 +380,10 @@ function App() {
             <p>- Client 3</p>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* FAQ Section */}
-      <motion.section
-        id="portfolio"
-        className="section"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-        viewport={{ once: true }}
-      >
+      <section id="faq" className="section fade-in">
         <h2>Frequently Asked Questions</h2>
         <div className="faq">
           {[
@@ -450,7 +400,7 @@ function App() {
             </div>
           ))}
         </div>
-      </motion.section>
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className="section fade-in">
