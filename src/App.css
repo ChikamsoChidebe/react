@@ -753,7 +753,7 @@ a:hover {
 }
 
 .mobile-header a {
-  color: white;
+  color: black;
   text-decoration: none;
   font-weight: bold;
   font-size: 1rem;
@@ -761,6 +761,39 @@ a:hover {
 
 .mobile-header a:hover {
   color: red;
+}
+/* Glassmorphism effect for the mobile header */
+.mobile-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.2); /* Transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 1000;
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+.mobile-header a {
+  color: #000; /* White text color */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.mobile-header a:hover {
+  color: red; /* Highlight color on hover */
+}
+
+.mobile-header.scrolled {
+  background: rgba(255, 255, 255, 0.4); /* Slightly darker background when scrolled */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow when scrolled */
 }
 
 /* Header */
@@ -890,7 +923,7 @@ a:hover {
   }
 
   /* Mobile Header */
-  .mobile-header {
+  /* .mobile-header {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -901,10 +934,10 @@ a:hover {
     top: 0;
     width: 100%;
     z-index: 1000;
-  }
+  } */
 
   .mobile-header a {
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 1rem;
   }
