@@ -363,21 +363,21 @@ function App() {
               <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
             </p>
             <p>"Chidebe is an exceptional developer! Delivered beyond expectations."</p>
-            <p>- Client 1</p>
+            <p>- John Smith</p>
           </div>
           <div className="review">
             <p className="stars">
               <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
             </p>
-            <p>"Amazing work! Highly recommended."</p>
-            <p>- Client 2</p>
+            <p>"Chikamso gives amazing work! Highly recommended."</p>
+            <p>- McDonald Swift</p>
           </div>
           <div className="review">
             <p className="stars">
               <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
             </p>
             <p>"Professional and timely delivery."</p>
-            <p>- Client 3</p>
+            <p>- Kolade Abiodun</p>
           </div>
         </div>
       </section>
