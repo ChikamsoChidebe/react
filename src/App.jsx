@@ -1,6 +1,9 @@
 import './App.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+ 
 
 function App() {
   const [showMoreAbout, setShowMoreAbout] = useState(false);
@@ -10,6 +13,29 @@ function App() {
   const [yearCount, setyearCount] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to toggle the menu
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      once: true, // Whether animation should happen only once
+    });
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const headerHeight = document.querySelector('.header').offsetHeight;
+      if (window.scrollY > headerHeight) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -201,7 +227,7 @@ function App() {
       </div>
 
       {/* Landing Section */}
-      <section className="landing fade-in ">
+      <section className="landing fade-in" data-aos="fade-up">
         <div className="landing-content">
           <h1>Hi, I'm Chidebe Chikamso</h1>
           <p>A passionate full-stack web developer creating modern, scalable, and user-friendly applications.</p>
@@ -213,7 +239,7 @@ function App() {
       </section>
 
       {/* About Me Section */}
-      <section id="about" className="section fade-in">
+      <section id="about" className="section fade-in" data-aos="fade-right">
         <h2>About Me</h2>
         <div className="about-content">
           <p>
@@ -234,7 +260,7 @@ function App() {
       </section>
 
       {/* Stats Section */}
-      <section id="stats" className="section fade-in">
+      <section id="stats" className="section fade-in" data-aos="fade-left">
         <h2>My Achievements</h2>
         <div className="stats-grid">
           <div className="stat-item">
@@ -271,7 +297,7 @@ function App() {
       </section>
 
       {/* Work Portfolio Section */}
-    <section id="portfolio" className="section fade-in">
+    <section id="portfolio" className="section fade-in" data-aos="fade-up">
         <h2>Work Portfolio</h2>
         <div className="portfolio-grid">
           <div className="portfolio-item">
@@ -299,7 +325,7 @@ function App() {
       </section>
 
       {/* Interactive Timeline Section */}
-      <section id="timeline" className="section fade-in">
+      <section id="timeline" className="section fade-in " data-aos="fade-right">
         <h2>My Journey</h2>
         <div className="timeline">
           <div className="timeline-item">
@@ -318,7 +344,7 @@ function App() {
       </section>
 
         {/* Pricing Plans Section */}
-      <section id="pricing" className="section fade-in">
+      <section id="pricing" className="section fade-in" data-aos="fade-left">
         <h2>Pricing Plans</h2>
         <div className="pricing-grid">
           <div className="pricing-card">
@@ -355,7 +381,7 @@ function App() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="section fade-in">
+      <section id="testimonials" className="section fade-in" data-aos="fade-up">
         <h2>What People Say</h2>
         <div className="reviews-grid">
           <div className="review">
@@ -383,7 +409,7 @@ function App() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="section fade-in">
+      <section id="faq" className="section fade-in" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="300">
         <h2>Frequently Asked Questions</h2>
         <div className="faq">
           {[
@@ -403,7 +429,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section fade-in">
+      <section id="contact" className="section fade-in" data-aos="fade-left">
         <h2>Contact Me</h2>
         <p>Feel free to reach out to me through any of the channels below:</p>
         <div className="contact-links" >
@@ -429,9 +455,16 @@ function App() {
         </div>
       </section>
 
-      <footer className="footer fade-in">
+      <footer className="footer fade-in" data-aos="fade-up">
         <p>&copy; 2025 Chidebe Chikamso. All rights reserved.</p>
       </footer>
+      {/* Back to Top Button */}
+      <button
+        className={`back-to-top ${isScrolled ? 'visible' : ''}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        ↑
+      </button>
     </div>
   );
 }
