@@ -317,6 +317,7 @@ a:hover {
 
 .landing-content h1 {
   font-size: 3rem;
+  text-transform: uppercase;
   margin-bottom: 1rem;
   animation: fadeInUp 1s ease-in-out;
 }
@@ -743,6 +744,7 @@ a:hover {
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-size: 24px;
+  font-weight: bolder;
   display: flex;
   justify-content: center;
   align-items: center;

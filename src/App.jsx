@@ -1,7 +1,7 @@
 import './App.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp, FaChevronUp } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { useTypewriter, Cursor} from 'react-simple-typewriter'
  
@@ -20,7 +20,6 @@ function App() {
     typeSpeed: 50, // Faster typing speed
     deleteSpeed: 50, // Faster deleting speed
     delaySpeed: 300, // Shorter delay before typing the next word
-    cursor: <Cursor cursorStyle='|' cursorBlinking={false} cursorColor='red' />,
   });
 
   useEffect(() => {
@@ -473,7 +472,7 @@ function App() {
         className={`back-to-top ${isScrolled ? 'visible' : ''}`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
-        ↑
+        <FaChevronUp />
       </button>
     </div>
   );
