@@ -848,7 +848,7 @@ a:hover {
 
 .header nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.3rem;
 }
 
 .header nav a {
@@ -911,8 +911,8 @@ a:hover {
     height: 5vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    gap: 12rem;
+    /* justify-content: space-around; */
+    gap: 9rem;
     text-align: center;
   }
 

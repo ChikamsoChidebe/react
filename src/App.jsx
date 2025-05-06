@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+import { useTypewriter, Cursor} from 'react-simple-typewriter'
  
 
 function App() {
@@ -13,6 +14,14 @@ function App() {
   const [yearCount, setyearCount] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to toggle the menu
+  let [text] = useTypewriter({
+    words: ['Hi, I am Chikamso Chidebe', 'Web Developer', 'UI/UX Designer', 'Tech Enthusiast', 'Freelancer'],
+    loop: 0,
+    typeSpeed: 50, // Faster typing speed
+    deleteSpeed: 50, // Faster deleting speed
+    delaySpeed: 300, // Shorter delay before typing the next word
+    cursor: <Cursor cursorStyle='|' cursorBlinking={false} cursorColor='red' />,
+  });
 
   useEffect(() => {
     AOS.init({
@@ -20,6 +29,7 @@ function App() {
       once: true, // Whether animation should happen only once
     });
   }, []);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -229,7 +239,7 @@ function App() {
       {/* Landing Section */}
       <section className="landing fade-in" data-aos="fade-up">
         <div className="landing-content">
-          <h1>Hi, I'm Chidebe Chikamso</h1>
+          <h1><span>{text}</span><Cursor cursorColor='red'/> </h1>
           <p>A passionate full-stack web developer creating modern, scalable, and user-friendly applications.</p>
           <a href="#portfolio" className="cta-button">Explore My Work</a> {/* Updated to use an anchor link */}
         </div>
