@@ -558,7 +558,7 @@ function App() {
               <p className="stars">
                 <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
               </p>
-              <p>"Chidebe is an exceptional developer! Delivered beyond expectations."</p>
+              <p>"Chidebe is an exceptional developer!"</p>
               <p>- John Smith</p>
             </div>
           </SwiperSlide>
