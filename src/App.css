@@ -923,6 +923,99 @@ a:focus, button:focus {
     display: none; /* Hidden on smaller screens */
   }
 }
+/* General Styles for Testimonials Slider */
+.modern-swiper {
+  width: 100%;
+  max-width: 900px; /* Limit the maximum width */
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.modern-swiper .swiper-slide {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.modern-swiper .swiper-slide:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.modern-swiper .review {
+  max-width: 70%; /* Limit the width of the review text */
+}
+
+.modern-swiper .stars {
+  color: #ffcc00; /* Gold color for stars */
+  margin-bottom: 10px;
+}
+
+/* Pagination Styling */
+.modern-swiper .swiper-pagination-bullet {
+  background: #ff6f61;
+  opacity: 0.8;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+}
+
+.modern-swiper .swiper-pagination-bullet-active {
+  background: #ff4a3d;
+  transform: scale(1.2); /* Slightly larger active bullet */
+}
+
+/* Navigation Arrows Styling */
+.modern-swiper .swiper-button-next,
+.modern-swiper .swiper-button-prev {
+  color: #ff6f61;
+  font-size: 1.5rem;
+}
+
+.modern-swiper .swiper-button-next:hover,
+.modern-swiper .swiper-button-prev:hover {
+  color: #ff4a3d;
+}
+
+/* Responsive Design for Testimonials Slider */
+@media (max-width: 768px) {
+  .modern-swiper {
+    max-width: 100%; /* Use full width on smaller screens */
+    padding: 10px 0;
+  }
+
+  .modern-swiper .swiper-slide {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .modern-swiper .review {
+    max-width: 90%; /* Allow more space for text */
+  }
+
+  .modern-swiper .swiper-button-next,
+  .modern-swiper .swiper-button-prev {
+    display: none; /* Hide navigation arrows on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-swiper .swiper-slide {
+    padding: 10px; /* Further reduce padding for very small screens */
+  }
+
+  .modern-swiper .review {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+
+  .modern-swiper .stars {
+    font-size: 1rem; /* Adjust star size */
+  }
+}
 
 /* Modern Swiper Styles */
 .modern-swiper {

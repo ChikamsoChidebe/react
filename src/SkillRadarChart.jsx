@@ -144,8 +144,16 @@ function SkillBarChart() {
       >
         My Skill Proficiency
       </h2>
-      <div style={{ height: "400px" }}>
-        <Bar data={data} options={options} />
+      <div
+        style={{
+          overflowX: "auto", // Enable horizontal scrolling
+          paddingBottom: "10px",
+        }}
+      >
+        <div style={{ width: "1000px", height: "400px" }}>
+          {/* Set a larger width for the chart to make it scrollable */}
+          <Bar data={data} options={options} />
+        </div>
       </div>
     </div>
   );
