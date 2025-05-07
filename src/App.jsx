@@ -1,6 +1,7 @@
 import './App.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
+import ContactForm from "./ContactForm";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp, FaChevronUp } from 'react-icons/fa';
 import { useState, useEffect,  lazy, Suspense, } from 'react';
 import { useTypewriter, Cursor} from 'react-simple-typewriter'
@@ -22,6 +23,7 @@ import AIChat from "./AIChat";
 
 function App() {
   const [showChat, setShowChat] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Loading state
   const [showMoreAbout, setShowMoreAbout] = useState(false);
   const [faqOpen, setFaqOpen] = useState(null);
   const [projectCount, setProjectCount] = useState(0);
@@ -51,7 +53,7 @@ function App() {
     setFilteredProjects(portfolioProjects); // Show all projects by default
   }, []);
   let [text] = useTypewriter({
-    words: ['Hi, I am Chikamso Chidebe', 'Web Developer', 'UI/UX Designer', 'Tech Enthusiast', 'Freelancer'],
+    words: ['Hi, I am Chikamso Favour', 'Web Developer', 'UI/UX Designer', 'Tech Enthusiast', 'Freelancer'],
     loop: 0,
     typeSpeed: 50, // Faster typing speed
     deleteSpeed: 50, // Faster deleting speed
@@ -89,6 +91,11 @@ function App() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+   
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
 
   useEffect(() => {
@@ -134,10 +141,7 @@ function App() {
       sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
-  
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -247,6 +251,28 @@ function App() {
     };
   }, []); 
 
+  useEffect(() => {
+    // Simulate a delay for loading (e.g., 3 seconds)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000); // 5 seconds delay
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="loading-screen">
+        <div className="glowing-loader">
+          <div className="ring"></div>
+          <div className="ring"></div>
+          <div className="ring"></div>
+          <span className="loading-text">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <ParallaxProvider>
       <AnimatePresence>
@@ -264,14 +290,14 @@ function App() {
           <h1>Chidebe Chikamso</h1>
           <p>Building the Future, One Line of Code at a Time</p>
         </div>
-        <nav>
+        <nav className='desktop-nav'>
           <a href="#about">About</a>
           <a href="#portfolio">Portfolio</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button className="menu-bar">
+        {/* <button className="menu-bar">
           Menu
           <div className="dropdown-links">
             <a href="#about">About</a>
@@ -280,8 +306,10 @@ function App() {
             <a href="#faq">FAQ</a>
             <a href="#contact">Contact</a>
           </div>
-        </button>
+        </button> */}
       </header>
+
+           
 
       {/* Header2 */}
       <header className="header2">
@@ -289,9 +317,35 @@ function App() {
           <h1><Fa500Px className='rotating-icon'/></h1> {/* Logo as the letter "C" */}
         </div>
         {/* <button className="menu-icon" onClick={toggleMenu}>
-          {menuOpen ? <FaTimes /> : <FaBars />} {/* Toggle between menu and close icons */}
-        {/* </button> */} 
+              {menuOpen ? <FaTimes /> : <FaBars />}
+        </button> */}
       </header>
+
+      {/* Side-Sliding Menu
+  <div className={`side-menu ${menuOpen ? "open" : ""}`}>
+    <nav className="side-menu-nav">
+      <h2>Menu</h2>
+      <a href="#about" onClick={toggleMenu}>
+        About
+      </a>
+      <a href="#portfolio" onClick={toggleMenu}>
+        Portfolio
+      </a>
+      <a href="#pricing" onClick={toggleMenu}>
+        Pricing
+      </a>
+      <a href="#faq" onClick={toggleMenu}>
+        FAQ
+      </a>
+      <a href="#contact" onClick={toggleMenu}>
+        Contact
+      </a>
+    </nav>
+  </div> */}
+
+  {/* Overlay */}
+  {menuOpen && <div className="menu-overlay" onClick={toggleMenu}></div>}
+
 
       {/* Sidebar */}
       {/* <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
@@ -683,6 +737,8 @@ function App() {
             </div>
           )} */}
     </main>
+
+       {/* <ContactForm /> */}
 
       <footer className="footer fade-in" data-aos="fade-up">
         <p>&copy; 2025 Chidebe Chikamso. All rights reserved.</p>
