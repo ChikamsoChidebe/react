@@ -25,10 +25,24 @@ const data = {
     {
       label: "Skill Proficiency (%)",
       data: [90, 80, 85, 70, 75, 95], // Skill levels in percentage
-      backgroundColor: "rgba(255, 99, 132, 0.8)", // Red color for bars
-      borderColor: "rgba(255, 99, 132, 1)",
+      backgroundColor: [
+        "red",
+        "red",
+        "red",
+        "red",
+        "red",
+        "red",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+      ],
       borderWidth: 2,
-      borderRadius: 10, // Rounded corners for bars
+      borderRadius: 15, // Rounded corners for bars
       hoverBackgroundColor: "rgba(255, 99, 132, 1)", // Hover effect
     },
   ],
@@ -43,7 +57,7 @@ const options = {
       position: "top",
       labels: {
         font: {
-          size: 16,
+          size: 14,
           family: "Arial, sans-serif",
           weight: "bold",
         },
@@ -79,7 +93,7 @@ const options = {
     },
     y: {
       grid: {
-        color: "rgba(0, 0, 0, 0.1)", // Grid line color
+        color: "red", // Grid line color
         borderDash: [5, 5], // Dashed grid lines
       },
       ticks: {
@@ -93,8 +107,8 @@ const options = {
     },
   },
   animation: {
-    duration: 1500, // Smooth animation
-    easing: "easeOutBounce", // Bounce effect
+    duration: 1000, // Smooth animation
+    easing: "easeInOutQuart", // Smooth easing effect
   },
 };
 
@@ -106,7 +120,7 @@ function SkillBarChart() {
     const handleScroll = () => {
       if (chartRef.current) {
         const rect = chartRef.current.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
           setIsVisible(true);
         }
       }
@@ -123,12 +137,12 @@ function SkillBarChart() {
       ref={chartRef}
       style={{
         width: "100%",
-        maxWidth: "700px",
+        maxWidth: "800px",
         margin: "0 auto",
         padding: "20px",
-        background: "linear-gradient(135deg, #f5f7fa, #c3cfe2)",
-        borderRadius: "15px",
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+        background: "linear-gradient(135deg, #ffffff, #f0f0f0)",
+        borderRadius: "20px",
+        boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
         opacity: isVisible ? 1 : 0, // Fade-in effect
         transform: isVisible ? "translateY(0)" : "translateY(50px)", // Slide-up effect
         transition: "opacity 0.8s ease, transform 0.8s ease", // Smooth transition
@@ -137,23 +151,15 @@ function SkillBarChart() {
       <h2
         style={{
           textAlign: "center",
-          color: "#4a4a4a",
+          color: "#333",
           fontFamily: "Arial, sans-serif",
           marginBottom: "20px",
         }}
       >
         My Skill Proficiency
       </h2>
-      <div
-        style={{
-          overflowX: "auto", // Enable horizontal scrolling
-          paddingBottom: "10px",
-        }}
-      >
-        <div style={{ width: "1000px", height: "400px" }}>
-          {/* Set a larger width for the chart to make it scrollable */}
-          <Bar data={data} options={options} />
-        </div>
+      <div style={{ height: "400px" }}>
+        <Bar data={data} options={options} />
       </div>
     </div>
   );

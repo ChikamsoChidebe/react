@@ -567,7 +567,7 @@ function App() {
               <p className="stars">
                 <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
               </p>
-              <p>"Chikamso gives amazing work! Highly recommended."</p>
+              <p>"Chikamso gives amazing work!"</p>
               <p>- McDonald Swift</p>
             </div>
           </SwiperSlide>
@@ -580,6 +580,42 @@ function App() {
               <p>- Kolade Abiodun</p>
             </div>
           </SwiperSlide>
+            <SwiperSlide>
+            <div className="review">
+              <p className="stars">
+              <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+              </p>
+              <p>"Amazing attention to detail!"</p>
+              <p>- Sarah Johnson</p>
+            </div>
+            </SwiperSlide>
+            <SwiperSlide>
+            <div className="review">
+              <p className="stars">
+              <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+              </p>
+              <p>"Delivered the project on time!"</p>
+              <p>- Michael Brown</p>
+            </div>
+            </SwiperSlide>
+            <SwiperSlide>
+            <div className="review">
+              <p className="stars">
+              <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+              </p>
+              <p>"Highly skilled and professional!"</p>
+              <p>- Emily Davis</p>
+            </div>
+            </SwiperSlide>
+            <SwiperSlide>
+            <div className="review">
+              <p className="stars">
+              <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+              </p>
+              <p>"Great experience!"</p>
+              <p>- David Wilson</p>
+            </div>
+            </SwiperSlide>
         </Swiper>
       </div>
     </section>
