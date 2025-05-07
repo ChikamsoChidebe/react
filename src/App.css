@@ -45,7 +45,11 @@
   transition: all 0.3s ease-in-out; /* Smooth transition */
 }
 #skills {
-  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 1rem;
   background-color: #f9f9f9;
   text-align: center;
 }
@@ -1202,7 +1206,7 @@ a:focus, button:focus {
   background-color: rgb(205, 11, 11); /* Slightly darker shade on hover */
 }
 
-/* Mobile Header
+/* Mobile Header */
 .mobile-header {
   display: flex;
   justify-content: space-around;
@@ -1231,7 +1235,7 @@ a:focus, button:focus {
 
 .mobile-header a:hover {
   color: red;
-} */
+} 
 /* Glassmorphism effect for the mobile header */
 .mobile-header {
   position: fixed;

@@ -416,7 +416,6 @@ function App() {
   </section>
 
     <section id="skills" className="section fade-in" data-aos="fade-up">
-      <h2>My Skills</h2>
       <SkillRadarChart />
     </section>
 
