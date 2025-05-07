@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -25,16 +25,11 @@ const data = {
     {
       label: "Skill Proficiency (%)",
       data: [90, 80, 85, 70, 75, 95], // Skill levels in percentage
-      backgroundColor: (context) => {
-        const gradient = context.chart.ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, "rgba(75, 192, 192, 0.8)");
-        gradient.addColorStop(1, "rgba(153, 102, 255, 0.8)");
-        return gradient;
-      },
-      borderColor: "rgba(75, 192, 192, 1)",
+      backgroundColor: "rgba(255, 99, 132, 0.8)", // Red color for bars
+      borderColor: "rgba(255, 99, 132, 1)",
       borderWidth: 2,
       borderRadius: 10, // Rounded corners for bars
-      hoverBackgroundColor: "rgba(255, 99, 132, 0.8)", // Hover effect
+      hoverBackgroundColor: "rgba(255, 99, 132, 1)", // Hover effect
     },
   ],
 };
@@ -104,8 +99,28 @@ const options = {
 };
 
 function SkillBarChart() {
+  const chartRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (chartRef.current) {
+        const rect = chartRef.current.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+          setIsVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div
+      ref={chartRef}
       style={{
         width: "100%",
         maxWidth: "700px",
@@ -114,6 +129,9 @@ function SkillBarChart() {
         background: "linear-gradient(135deg, #f5f7fa, #c3cfe2)",
         borderRadius: "15px",
         boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+        opacity: isVisible ? 1 : 0, // Fade-in effect
+        transform: isVisible ? "translateY(0)" : "translateY(50px)", // Slide-up effect
+        transition: "opacity 0.8s ease, transform 0.8s ease", // Smooth transition
       }}
     >
       <h2
