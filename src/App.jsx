@@ -2,11 +2,26 @@ import './App.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp, FaChevronUp } from 'react-icons/fa';
-import { useState, useEffect } from 'react';
+import { useState, useEffect,  lazy, Suspense, } from 'react';
 import { useTypewriter, Cursor} from 'react-simple-typewriter'
+import { ParallaxProvider } from "react-scroll-parallax";
+import SkillRadarChart from "./SkillRadarChart";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow'; // Import coverflow effect
+import { AnimatePresence, motion } from "framer-motion";
+import { Pagination, EffectCoverflow, Autoplay } from 'swiper/modules';
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { FaCode, FaLaptopCode, FaProjectDiagram } from "react-icons/fa";
+<a href="#main-content" className="skip-link">Skip to Content</a>
+import AIChat from "./AIChat";
  
 
 function App() {
+  const [showChat, setShowChat] = useState(false);
   const [showMoreAbout, setShowMoreAbout] = useState(false);
   const [faqOpen, setFaqOpen] = useState(null);
   const [projectCount, setProjectCount] = useState(0);
@@ -14,6 +29,27 @@ function App() {
   const [yearCount, setyearCount] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to toggle the menu
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [filteredProjects, setFilteredProjects] = useState([]);
+  const portfolioProjects = [
+    { id: 1, title: "E-commerce Platform", description: "An e-commerce platform with a modern design.", category: "Web Development" },
+    { id: 2, title: "Portfolio Website", description: "A sleek portfolio website showcasing my skills.", category: "UI/UX Design" },
+    { id: 3, title: "Blog Platform", description: "A blog platform with user authentication.", category: "Web Development" },
+    { id: 4, title: "Mobile App Design", description: "A mobile app design for a fitness tracker.", category: "UI/UX Design" },
+    { id: 5, title: "Dashboard", description: "A dynamic dashboard for analytics.", category: "Web Development" },
+    { id: 6, title: "Social Media App", description: "A social media app with real-time chat functionality.", category: "Web Development" },
+  ];
+  const handleFilterChange = (category) => {
+    setSelectedCategory(category);
+    if (category === "All") {
+      setFilteredProjects(portfolioProjects);
+    } else {
+      setFilteredProjects(portfolioProjects.filter((project) => project.category === category));
+    }
+  };
+  useEffect(() => {
+    setFilteredProjects(portfolioProjects); // Show all projects by default
+  }, []);
   let [text] = useTypewriter({
     words: ['Hi, I am Chikamso Chidebe', 'Web Developer', 'UI/UX Designer', 'Tech Enthusiast', 'Freelancer'],
     loop: 0,
@@ -21,6 +57,39 @@ function App() {
     deleteSpeed: 50, // Faster deleting speed
     delaySpeed: 300, // Shorter delay before typing the next word
   });
+
+  useEffect(() => {
+    const cursor = document.querySelector(".custom-cursor");
+
+    const handleMouseMove = (e) => {
+      cursor.style.left = `${e.pageX}px`;
+      cursor.style.top = `${e.pageY}px`;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
 
   useEffect(() => {
     AOS.init({
@@ -176,12 +245,21 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, []); 
 
   return (
+    <ParallaxProvider>
+      <AnimatePresence>
     <div className="app">
+      {/* Scroll Progress Bar */}
+      <div
+            className="scroll-progress"
+            style={{ width: `${scrollProgress}%` }}
+          ></div>
+      {/* Custom Cursor */}
+      <div className="custom-cursor"></div>
       {/* Header with Logo and Tagline */}
-      <header className="header fade-in ">
+      <header className="header fade-in " role='banner' data-aos="fade-down" data-aos-duration="1500" data-aos-delay="30">
         <div className="logo">
           <h1>Chidebe Chikamso</h1>
           <p>Building the Future, One Line of Code at a Time</p>
@@ -243,11 +321,12 @@ function App() {
           <a href="#portfolio" className="cta-button">Explore My Work</a> {/* Updated to use an anchor link */}
         </div>
         <div className="landing-visual">
-          <img src="me3.jpg" alt="Custom Illustration" />
+          <img src="me3.jpg" alt="Custom Illustration" loading="lazy" />
         </div>
       </section>
 
       {/* About Me Section */}
+      <main role="main">
       <section id="about" className="section fade-in" data-aos="fade-right">
         <h2>About Me</h2>
         <div className="about-content">
@@ -306,51 +385,82 @@ function App() {
       </section>
 
       {/* Work Portfolio Section */}
-    <section id="portfolio" className="section fade-in" data-aos="fade-up">
-        <h2>Work Portfolio</h2>
-        <div className="portfolio-grid">
-          <div className="portfolio-item">
-            <h3>Project 1</h3>
-            <p>An e-commerce platform with a modern design.</p>
-            <a href="https://github.com/project1" target="_blank" rel="noopener noreferrer">
-              <FaGithub /> View on GitHub
-            </a>
-          </div>
-          <div className="portfolio-item">
-            <h3>Project 2</h3>
-            <p>A sleek portfolio website showcasing my skills.</p>
-            <a href="https://github.com/project2" target="_blank" rel="noopener noreferrer">
-              <FaGithub /> View on GitHub
-            </a>
-          </div>
-          <div className="portfolio-item">
-            <h3>Project 3</h3>
-            <p>A blog platform with user authentication.</p>
-            <a href="https://github.com/project3" target="_blank" rel="noopener noreferrer">
-              <FaGithub /> View on GitHub
-            </a>
-          </div>
-        </div>
-      </section>
+      <section id="portfolio" className="section fade-in" data-aos="fade-up">
+  <h2>Work Portfolio</h2>
+
+  {/* Filter Buttons */}
+  <div className="portfolio-filters">
+    {["All", "Web Development", "UI/UX Design"].map((category) => (
+      <button
+        key={category}
+        className={`filter-button ${selectedCategory === category ? "active" : ""}`}
+        onClick={() => handleFilterChange(category)}
+      >
+        {category}
+      </button>
+    ))}
+  </div>
+
+  {/* Portfolio Grid */}
+  <div className="portfolio-grid">
+    {filteredProjects.map((project) => (
+      <div key={project.id} className="portfolio-item">
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <a href="https://github.com/project" target="_blank" rel="noopener noreferrer">
+          <FaGithub /> View on GitHub
+        </a>
+      </div>
+    ))}
+  </div>
+  </section>
+
+    <section id="skills" className="section fade-in" data-aos="fade-up">
+      <h2>My Skills</h2>
+      <SkillRadarChart />
+    </section>
 
       {/* Interactive Timeline Section */}
-      <section id="timeline" className="section fade-in " data-aos="fade-right">
-        <h2>My Journey</h2>
-        <div className="timeline">
-          <div className="timeline-item">
-            <h3>2023</h3>
-            <p>Started my journey as a web developer, learning HTML, CSS, and JavaScript.</p>
-          </div>
-          <div className="timeline-item">
-            <h3>2024</h3>
-            <p>Built my first full-stack application using React and Node.js.</p>
-          </div>
-          <div className="timeline-item">
-            <h3>2025</h3>
-            <p>Worked on multiple large-scale projects and collaborated with global teams.</p>
-          </div>
-        </div>
-      </section>
+      <section id="timeline" className="section fade-in" data-aos="fade-right">
+  <h2>My Journey</h2>
+  <VerticalTimeline>
+    <VerticalTimelineElement
+      className="vertical-timeline-element--work"
+      contentStyle={{ background: "red", color: "#fff" }}
+      contentArrowStyle={{ borderRight: "7px solid red" }}
+      date="2023"
+      iconStyle={{ background: "red", color: "#fff" }}
+      icon={<FaCode />}
+    >
+      <h3 className="vertical-timeline-element-title">Started Web Development</h3>
+      <p>Learned HTML, CSS, and JavaScript to build static websites.</p>
+    </VerticalTimelineElement>
+
+    <VerticalTimelineElement
+      className="vertical-timeline-element--work"
+      contentStyle={{ background: "black", color: "#fff" }}
+      contentArrowStyle={{ borderRight: "7px solid black" }}
+      date="2024"
+      iconStyle={{ background: "black", color: "#fff" }}
+      icon={<FaLaptopCode />}
+    >
+      <h3 className="vertical-timeline-element-title">Built My First Full-Stack App</h3>
+      <p>Developed a full-stack application using React and Node.js.</p>
+    </VerticalTimelineElement>
+
+    <VerticalTimelineElement
+      className="vertical-timeline-element--work"
+      contentStyle={{ background: "red", color: "#fff" }}
+      contentArrowStyle={{ borderRight: "7px solid red" }}
+      date="2025"
+      iconStyle={{ background: "red", color: "#fff" }}
+      icon={<FaProjectDiagram />}
+    >
+      <h3 className="vertical-timeline-element-title">Collaborated on Large-Scale Projects</h3>
+      <p>Worked with global teams to deliver scalable and user-friendly applications.</p>
+    </VerticalTimelineElement>
+  </VerticalTimeline>
+</section>
 
         {/* Pricing Plans Section */}
       <section id="pricing" className="section fade-in" data-aos="fade-left">
@@ -364,7 +474,7 @@ function App() {
               <li>Responsive Layout</li>
               <li>Email Support</li>
             </ul>
-            <button className="hire-button" onClick={() => window.location.href = '#contact'}>Hire Me</button>
+            <button className="hire-button" onClick={() => window.location.href = '#contact'}  tabIndex="0" aria-label="Hire me through the contact section">Hire Me</button>
           </div>
           <div className="pricing-card">
             <h3>Standard Plan</h3>
@@ -374,7 +484,7 @@ function App() {
               <li>Responsive Layout</li>
               <li>Priority Support</li>
             </ul>
-            <button className="hire-button" onClick={() => window.location.href = '#contact'}>Hire Me</button>
+            <button className="hire-button" onClick={() => window.location.href = '#contact'} tabIndex="0" aria-label="Hire me through the contact section">Hire Me</button>
           </div>
           <div className="pricing-card">
             <h3>Premium Plan</h3>
@@ -384,38 +494,97 @@ function App() {
               <li>Custom Features</li>
               <li>24/7 Support</li>
             </ul>
-            <button className="hire-button" onClick={() => window.location.href = '#contact'}>Hire Me</button>
+            <button className="hire-button" onClick={() => window.location.href = '#contact'}  tabIndex="0" aria-label="Hire me through the contact section">Hire Me</button>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      <section id="testimonials1" className="section fade-in" data-aos="fade-up">
+  <h2>What People Say</h2>
+  <div className="testimonials-grid">
+    <div className="testimonial-card">
+      <p className="stars">
+        <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+      </p>
+      <blockquote><p>"Chidebe is an exceptional developer! Delivered beyond expectations."</p></blockquote>
+      <cite>- John Smith</cite>
+    </div>
+    <div className="testimonial-card">
+      <p className="stars">
+        <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+      </p>
+      <p>"Chikamso gives amazing work! Highly recommended."</p>
+      <cite>- McDonald Swift</cite>
+    </div>
+    <div className="testimonial-card">
+      <p className="stars">
+        <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+      </p>
+      <p>"Professional and timely delivery."</p>
+      <cite>- Kolade Abiodun</cite>
+    </div>
+  </div>
+</section> 
+
       <section id="testimonials" className="section fade-in" data-aos="fade-up">
-        <h2>What People Say</h2>
-        <div className="reviews-grid">
-          <div className="review">
-            <p className="stars">
-              <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
-            </p>
-            <p>"Chidebe is an exceptional developer! Delivered beyond expectations."</p>
-            <p>- John Smith</p>
-          </div>
-          <div className="review">
-            <p className="stars">
-              <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
-            </p>
-            <p>"Chikamso gives amazing work! Highly recommended."</p>
-            <p>- McDonald Swift</p>
-          </div>
-          <div className="review">
-            <p className="stars">
-              <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
-            </p>
-            <p>"Professional and timely delivery."</p>
-            <p>- Kolade Abiodun</p>
-          </div>
-        </div>
-      </section>
+      <h2>What People Say</h2>
+      <div className="responsive-swiper">
+        <Swiper
+          modules={[Pagination, EffectCoverflow, Autoplay]}
+          effect="coverflow"
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView="auto"
+          autoplay={{
+            delay: 3000, // Slide changes every 3 seconds
+            disableOnInteraction: false,
+          }}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true, // Makes pagination bullets dynamic
+          }}
+          navigation
+          className="modern-swiper"
+        >
+          <SwiperSlide>
+            <div className="review">
+              <p className="stars">
+                <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+              </p>
+              <p>"Chidebe is an exceptional developer! Delivered beyond expectations."</p>
+              <p>- John Smith</p>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="review">
+              <p className="stars">
+                <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+              </p>
+              <p>"Chikamso gives amazing work! Highly recommended."</p>
+              <p>- McDonald Swift</p>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="review">
+              <p className="stars">
+                <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+              </p>
+              <p>"Professional and timely delivery."</p>
+              <p>- Kolade Abiodun</p>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    </section>
+
+      
 
       {/* FAQ Section */}
       <section id="faq" className="section fade-in" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="300">
@@ -464,6 +633,22 @@ function App() {
         </div>
       </section>
 
+          {/* Toggle Button */}
+          {/* <button
+            className="chat-toggle"
+            onClick={() => setShowChat(!showChat)}
+          >
+            {showChat ? "Close Chat" : "Chat with Me"}
+          </button> */}
+
+          {/* Chatbot */}
+          {/* {showChat && (
+            <div className="ai-chat-container">
+              <AIChat />
+            </div>
+          )} */}
+    </main>
+
       <footer className="footer fade-in" data-aos="fade-up">
         <p>&copy; 2025 Chidebe Chikamso. All rights reserved.</p>
       </footer>
@@ -475,6 +660,8 @@ function App() {
         <FaChevronUp />
       </button>
     </div>
+    </AnimatePresence>
+    </ParallaxProvider>
   );
 }
 export default App;

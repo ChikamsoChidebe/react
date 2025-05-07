@@ -1,4 +1,83 @@
 /* General Styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+  transition: top 0.3s;
+}
+
+/* Chat Toggle Button */
+.chat-toggle {
+  position: fixed; /* Fixed position */
+  bottom: 80px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.chat-toggle:hover {
+  background-color: #ff4a3d;
+}
+
+/* AI Chat Container */
+.ai-chat-container {
+  position: fixed; /* Fixed position */
+  bottom: 70px; /* Distance from the bottom (above the toggle button) */
+  right: 20px; /* Align with the toggle button */
+  width: 300px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: white; /* Background color */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+#skills {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#skills h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+.app {
+  position: relative; /* Ensure the chatbox sticks within this container */
+}
+.ai-chat-container {
+  transition: all 0.3s ease-in-out;
+}
+.ai-chat-container.sticky {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+.skip-link:focus {
+  top: 0;
+}
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background-color: red; /* Green color for the progress bar */
+  z-index: 9999; /* Ensure it stays on top */
+  transition: width 0.2s ease-out; /* Smooth transition */
+}
 html {
   scroll-behavior: smooth;
 }
@@ -408,7 +487,7 @@ a:hover {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  background: rgb(243, 153, 153);
+  background: whitesmoke;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -439,7 +518,7 @@ a:hover {
   width: 55%;
   margin-top: 0.5rem;
   color: white;
-  background: black;
+  background: red;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   font-weight: bold;
@@ -447,7 +526,7 @@ a:hover {
 }
 
 .portfolio-item a:hover {
-  background: white; /* Darker Purple */
+  background: black; /* Darker Purple */
   color: #333;
 }
 
@@ -504,6 +583,41 @@ a:hover {
   color: gold; /* Yellow */
   font-size: 1.2rem;
 }
+
+.testimonials-grid {
+  display: flex;
+  gap: 20px; /* Space between cards */
+  justify-content: center; /* Center the cards */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  margin-top: 20px;
+}
+
+.testimonial-card {
+  background-color: #f9f9f9; /* Light background for the card */
+  border: 1px solid #ddd; /* Border for the card */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Inner padding */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 300px; /* Limit the width of each card */
+  text-align: center; /* Center-align text */
+}
+
+.testimonial-card .stars {
+  color: #f4b400; /* Gold color for stars */
+  margin-bottom: 10px;
+}
+
+a:focus, button:focus {
+  outline: 2px solid red; /* Highlight focus with a yellow border */
+  outline-offset: 4px;
+}
+
+.testimonial-card p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
 
 /* Contact Section */
 .contact-links{
@@ -729,6 +843,237 @@ a:hover {
   margin-top: 0.5rem;
   font-size: 1rem;
   color: #666;
+}
+
+/* Modern Swiper Styles */
+.modern-swiper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.modern-swiper .swiper-slide {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.modern-swiper .swiper-slide:hover {
+  transform: scale(1.05);
+}
+
+.modern-swiper .review {
+  max-width: 70%;
+}
+
+.modern-swiper .stars {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.modern-swiper .swiper-pagination-bullet {
+  background: #ff6f61;
+  opacity: 0.8;
+}
+
+.modern-swiper .swiper-pagination-bullet-active {
+  background: #ff4a3d;
+}
+
+.modern-swiper .swiper-button-next,
+.modern-swiper .swiper-button-prev {
+  color: #ff6f61;
+  font-size: 1.5rem;
+}
+/* Hide Swiper on larger screens */
+.responsive-swiper {
+  display: none; /* Hidden by default */
+}
+#testimonials {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+/* Show Swiper only on phone screens */
+@media (max-width: 768px) {
+  .responsive-swiper {
+    display: block; /* Visible on smaller screens */
+  background: linear-gradient(135deg, #f3f5ef, #dce4dc);
+
+  }
+  #testimonials {
+    display: flex; /* Show testimonials on smaller screens */
+  }
+  #testimonials1{
+    display: none; /* Hidden on smaller screens */
+  }
+  .testimonials-grid {
+    display: none; /* Hidden on smaller screens */
+  }
+  .reviews-grid {
+    display: none; /* Hidden on smaller screens */
+  }
+}
+
+/* Modern Swiper Styles */
+.modern-swiper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.modern-swiper .swiper-slide {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.modern-swiper .swiper-slide:hover {
+  transform: scale(1.05);
+}
+
+.modern-swiper .review {
+  max-width: 70%;
+}
+
+.modern-swiper .stars {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+/* Pagination Styling */
+.modern-swiper .swiper-pagination-bullet {
+  background: #ff6f61;
+  opacity: 0.8;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+}
+
+.modern-swiper .swiper-pagination-bullet-active {
+  background: #ff4a3d;
+  transform: scale(1.2);
+}
+
+/* Navigation Arrows Styling */
+.modern-swiper .swiper-button-next,
+.modern-swiper .swiper-button-prev {
+  display: none;
+}
+
+.modern-swiper .swiper-button-next:hover,
+.modern-swiper .swiper-button-prev:hover {
+  color: #ff4a3d;
+}
+
+/* AI Chat Styles */
+.ai-chat-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ai-chat-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.chat-box {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-message {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.chat-message.user {
+  background: #e0e0e0;
+  text-align: right;
+}
+
+.chat-message.assistant {
+  background: #d1e7dd;
+  text-align: left;
+}
+
+.chat-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.chat-input button {
+  padding: 0.5rem 1rem;
+  background: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.chat-input button:hover {
+  background: #ff4a3d;
+}
+
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.filter-button:hover {
+  background-color: #555;
+  color: #fff;
 }
 
 /* Back to Top Button */
