@@ -41,29 +41,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 0, 0, 0.7);
 }
-/* Enhanced section reveal animation */
-.section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.section.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Enhance the scroll progress bar */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  background: linear-gradient(to right, #ff0000, #ff6666);
-  z-index: 9999;
-  transition: width 0.1s ease-out;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-}
 
 /* Glowing Loader */
 .glowing-loader {
