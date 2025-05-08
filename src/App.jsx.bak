@@ -1,11 +1,9 @@
 import './App.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
+import AnimatedBackground from './AnimatedBackground';
 import ContactForm from "./ContactForm";
 import SearchBar from './SearchBar';
-import BlogModal from './BlogModal';
-import blogPosts from './blogData';
-import { FaCalendarAlt, FaUser, FaTag } from 'react-icons/fa';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp, FaChevronUp, FaArrowRight } from 'react-icons/fa';
 import { useState, useEffect,  lazy, Suspense, } from 'react';
 import { useTypewriter, Cursor} from 'react-simple-typewriter'
@@ -37,8 +35,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false); // State to toggle the menu
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredProjects, setFilteredProjects] = useState([]);
-  const [selectedBlogPost, setSelectedBlogPost] = useState(null);
-  const [blogModalOpen, setBlogModalOpen] = useState(false);
+  
   const portfolioProjects = [
     { id: 1, title: "E-commerce Platform", description: "An e-commerce platform with a modern design.", category: "Web Development" },
     { id: 2, title: "Portfolio Website", description: "A sleek portfolio website showcasing my skills.", category: "UI/UX Design" },
@@ -65,17 +62,6 @@ function App() {
     deleteSpeed: 50, // Faster deleting speed
     delaySpeed: 300, // Shorter delay before typing the next word
   });
-
-  const openBlogModal = (post) => {
-    setSelectedBlogPost(post);
-    setBlogModalOpen(true);
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-  };
-  
-  const closeBlogModal = () => {
-    setBlogModalOpen(false);
-    document.body.style.overflow = 'auto'; // Re-enable scrolling
-  };
 
   // useEffect(() => {
   //   const cursor = document.querySelector(".custom-cursor");
@@ -574,52 +560,91 @@ function App() {
         <h2>Latest Insights</h2>
         <p className="section-subtitle">Thoughts, ideas, and insights from my journey as a developer</p>
         
-  <div className="blog-grid">
-    {blogPosts.map((post) => (
-      <div 
-        key={post.id} 
-        className={`blog-card ${post.id === 2 ? 'featured' : ''}`}
-        onClick={() => openBlogModal(post)}
-      >
-        <div className="blog-image">
-          <img src={post.image} alt={post.title} loading="lazy" />
-          <div className="blog-date">
-            <span className="day">{post.date.split(' ')[0]}</span>
-            <span className="month">{post.date.split(' ')[1]}</span>
-          </div>
-        </div>
-        <div className="blog-content">
-          <div className="blog-tags">
-            {post.tags.map((tag, index) => (
-              <span key={index}>{tag}</span>
-            ))}
-          </div>
-          <h3>{post.title}</h3>
-          <p>{post.excerpt}</p>
-          <div className="blog-footer">
-            <div className="blog-author">
-              <img src="me3.jpg" alt="Author" />
-              <span>By {post.author}</span>
+        <div className="blog-grid">
+          {/* Blog Post 1 */}
+          <div className="blog-card">
+            <div className="blog-image">
+              <img src="me.jpg" alt="Modern Web Development Trends" loading="lazy" />
+              <div className="blog-date">
+                <span className="day">15</span>
+                <span className="month">Jun</span>
+              </div>
             </div>
-            <button className="read-more">Read More <FaArrowRight /></button>
+            <div className="blog-content">
+              <div className="blog-tags">
+                <span>Development</span>
+                <span>React</span>
+              </div>
+              <h3>Modern Web Development Trends in 2024</h3>
+              <p>Exploring the latest frameworks, tools, and methodologies that are shaping the future of web development.</p>
+              <div className="blog-footer">
+                <div className="blog-author">
+                  <img src="me3.jpg" alt="Author" />
+                  <span>By Me</span>
+                </div>
+                <a href="#" className="read-more">Read More <FaArrowRight /></a>
+              </div>
+            </div>
+          </div>
+          
+          {/* Blog Post 2 */}
+          <div className="blog-card featured">
+            <div className="blog-image">
+              <img src="me2.jpg" alt="UI/UX Design Principles" loading="lazy" />
+              <div className="blog-date">
+                <span className="day">28</span>
+                <span className="month">May</span>
+              </div>
+            </div>
+            <div className="blog-content">
+              <div className="blog-tags">
+                <span>Design</span>
+                <span>UI/UX</span>
+              </div>
+              <h3>Essential UI/UX Design Principles Every Developer Should Know</h3>
+              <p>Understanding the fundamentals of user experience design can dramatically improve the quality of your applications.</p>
+              <div className="blog-footer">
+                <div className="blog-author">
+                  <img src="me3.jpg" alt="Author" />
+                  <span>By Me</span>
+                </div>
+                <a href="#" className="read-more">Read More <FaArrowRight /></a>
+              </div>
+            </div>
+          </div>
+          
+          {/* Blog Post 3 */}
+          <div className="blog-card">
+            <div className="blog-image">
+              <img src="picture.jpg" alt="Full-Stack Development" loading="lazy" />
+              <div className="blog-date">
+                <span className="day">10</span>
+                <span className="month">Apr</span>
+              </div>
+            </div>
+            <div className="blog-content">
+              <div className="blog-tags">
+                <span>Full-Stack</span>
+                <span>Career</span>
+              </div>
+              <h3>The Journey to Becoming a Full-Stack Developer</h3>
+              <p>Insights from my personal journey, challenges faced, and lessons learned while mastering both front-end and back-end technologies.</p>
+              <div className="blog-footer">
+                <div className="blog-author">
+                  <img src="me3.jpg" alt="Author" />
+                  <span>By Me</span>
+                </div>
+                <a href="#" className="read-more">Read More <FaArrowRight /></a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-  </div>
-  
-  <div className="blog-cta">
-    <h3>Want to read more articles?</h3>
-    <a href="#blog" className="cta-button">View All Posts</a>
-  </div>
-</section>
-
-{/* Add the BlogModal component at the end of your return statement */}
-<BlogModal 
-  post={selectedBlogPost} 
-  isOpen={blogModalOpen} 
-  onClose={closeBlogModal} 
-/>
+        
+        <div className="blog-cta">
+          <h3>Want to read more articles?</h3>
+          <a href="#" className="cta-button">View All Posts</a>
+        </div>
+      </section>
 
       <section id="testimonials1" className="section fade-in" data-aos="fade-up">
   <h2>What People Say</h2>
@@ -792,19 +817,19 @@ function App() {
       </section>
 
           {/* Toggle Button */}
-          {/* <button
+          <button
             className="chat-toggle"
             onClick={() => setShowChat(!showChat)}
           >
             {showChat ? "Close Chat" : "Chat with Me"}
-          </button> */}
+          </button>
 
           {/* Chatbot */}
-          {/* {showChat && (
+          {showChat && (
             <div className="ai-chat-container">
               <AIChat />
             </div>
-          )} */}
+          )}
     </main>
 
        {/* <ContactForm /> */}

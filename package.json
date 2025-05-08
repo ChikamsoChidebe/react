@@ -30,11 +30,9 @@
   "react-scroll-parallax": "^3.4.5",
   "react-simple-chatbot": "^0.5.0",
   "react-simple-typewriter": "^5.0.1",
-  "react-tsparticles": "^2.12.2",
   "react-vertical-timeline-component": "^3.5.3",
   "swiper": "^11.2.6",
   "three": "^0.176.0",
-  "tsparticles": "^3.8.1",
   "ws": "^8.18.2"
  },
  "devDependencies": {
