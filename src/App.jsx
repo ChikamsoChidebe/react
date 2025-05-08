@@ -6,7 +6,7 @@ import SearchBar from './SearchBar';
 import BlogModal from './BlogModal';
 import blogPosts from './blogData';
 import { FaCalendarAlt, FaUser, FaTag } from 'react-icons/fa';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp, FaChevronUp, FaArrowRight } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaHome, FaQuestionCircle, FaMoon, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp, FaChevronUp, FaArrowRight, FaBriefcase, FaChartBar, FaDollarSign, FaNewspaper, FaDownload } from 'react-icons/fa';
 import { useState, useEffect,  lazy, Suspense, } from 'react';
 import { useTypewriter, Cursor} from 'react-simple-typewriter'
 import { ParallaxProvider } from "react-scroll-parallax";
@@ -39,6 +39,8 @@ function App() {
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [selectedBlogPost, setSelectedBlogPost] = useState(null);
   const [blogModalOpen, setBlogModalOpen] = useState(false);
+  const [sideMenuOpen, setSideMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   const portfolioProjects = [
     { id: 1, title: "E-commerce Platform", description: "An e-commerce platform with a modern design.", category: "Web Development" },
     { id: 2, title: "Portfolio Website", description: "A sleek portfolio website showcasing my skills.", category: "UI/UX Design" },
@@ -77,6 +79,19 @@ function App() {
     document.body.style.overflow = 'auto'; // Re-enable scrolling
   };
 
+  const toggleSideMenu = () => {
+    setSideMenuOpen(!sideMenuOpen);
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    // You would also add logic here to apply dark mode styles
+  };
+
+  const downloadResume = () => {
+    // Replace with your actual resume file path
+    window.open('/path-to-your-resume.pdf', '_blank');
+  };
   // useEffect(() => {
   //   const cursor = document.querySelector(".custom-cursor");
 
@@ -326,18 +341,6 @@ function App() {
         </button> */}
       </header>
 
-           
-
-      {/* Header2 */}
-      <header className="header2">
-        <div className="logo1">
-          <h1><Fa500Px className='rotating-icon'/></h1> {/* Logo as the letter "C" */}
-        </div>
-        {/* <button className="menu-icon" onClick={toggleMenu}>
-              {menuOpen ? <FaTimes /> : <FaBars />}
-        </button> */}
-      </header>
-
       {/* Side-Sliding Menu
   <div className={`side-menu ${menuOpen ? "open" : ""}`}>
     <nav className="side-menu-nav">
@@ -361,7 +364,7 @@ function App() {
   </div> */}
 
   {/* Overlay */}
-  {menuOpen && <div className="menu-overlay" onClick={toggleMenu}></div>}
+  {/* {menuOpen && <div className="menu-overlay" onClick={toggleMenu}></div>} */}
 
 
       {/* Sidebar */}
@@ -375,6 +378,81 @@ function App() {
         </nav>
       </div> */}
 
+          {/* Side Menu */}
+<div className={`side-menu ${sideMenuOpen ? 'open' : ''}`}>
+  <div className="side-menu-header">
+    <h2>Menu</h2>
+    <button className="close-menu" onClick={toggleSideMenu}>
+      <FaTimes />
+    </button>
+  </div>
+  
+  <div className="side-menu-content">
+    <nav className="side-menu-nav">
+      <a href="#" onClick={toggleSideMenu}>
+        <FaHome /> Home
+      </a>
+      <a href="#about" onClick={toggleSideMenu}>
+        <FaUser /> About
+      </a>
+      <a href="#portfolio" onClick={toggleSideMenu}>
+        <FaBriefcase /> Portfolio
+      </a>
+      <a href="#skills" onClick={toggleSideMenu}>
+        <FaCode /> Skills
+      </a>
+      <a href="#timeline" onClick={toggleSideMenu}>
+        <FaChartBar /> Journey
+      </a>
+      <a href="#pricing" onClick={toggleSideMenu}>
+        <FaDollarSign /> Pricing
+      </a>
+      <a href="#blog" onClick={toggleSideMenu}>
+        <FaNewspaper /> Blog
+      </a>
+      <a href="#faq" onClick={toggleSideMenu}>
+        <FaQuestionCircle /> FAQ
+      </a>
+      <a href="#contact" onClick={toggleSideMenu}>
+        <FaEnvelope /> Contact
+      </a>
+    </nav>
+    
+    <div className="side-menu-actions">
+      {/* <button className="action-button theme-toggle" onClick={toggleDarkMode}>
+        {darkMode ? <FaSun /> : <FaMoon />}
+        {darkMode ? 'Light Mode' : 'Dark Mode'}
+      </button> */}
+      
+      <button className="action-button resume-download" onClick={downloadResume}>
+        <FaDownload /> Download Resume
+      </button>
+    </div>
+    
+    <div className="side-menu-social">
+      <a href="https://github.com/ChikamsoChidebe" target="_blank" rel="noopener noreferrer">
+        <FaGithub />
+      </a>
+      <a href="https://linkedin.com/in/chidebe-chikamso" target="_blank" rel="noopener noreferrer">
+        <FaLinkedin />
+      </a>
+      <a href="mailto:chikamsochidebe@gmail.com">
+        <FaEnvelope />
+      </a>
+      <a href="https://wa.me/2349039220171" target="_blank" rel="noopener noreferrer">
+        <FaWhatsapp />
+      </a>
+    </div>
+  </div>
+  
+  <div className="side-menu-footer">
+    <p>&copy; 2025 Chidebe Chikamso</p>
+  </div>
+</div>
+
+{/* Overlay for closing the menu when clicking outside */}
+{sideMenuOpen && <div className="side-menu-overlay" onClick={toggleSideMenu}></div>}
+
       {/* Mobile Header */}
       <div className={`mobile-header ${isScrolled ? 'scrolled' : ''}`} >
         <a href="#about">About</a>
@@ -386,6 +464,19 @@ function App() {
 
       {/* Landing Section */}
       <section className="landing fade-in" data-aos="fade-up">
+         {/* Header2 */}
+      <header className="header2">
+        <div className="logo1">
+          <h1><Fa500Px className='rotating-icon'/></h1> {/* Logo as the letter "C" */}
+        </div>
+        {/* <button className="menu-icon" onClick={toggleMenu}>
+              {menuOpen ? <FaTimes /> : <FaBars />}
+        </button> */}
+        <button className="menu-toggle" onClick={toggleSideMenu} aria-label="Toggle menu">
+            <FaBars />
+        </button>
+      </header>
+
         <div className="landing-content">
           <h1><span>{text}</span><Cursor cursorColor='red'/> </h1>
           <p>A passionate full-stack web developer creating modern, scalable, and user-friendly applications.</p>
