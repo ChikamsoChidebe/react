@@ -7,7 +7,7 @@ import BlogModal from './BlogModal';
 import blogPosts from './blogData';
 import { FaCalendarAlt, FaUser, FaTag } from 'react-icons/fa';
 import { FaGithub, FaLinkedin, FaHome, FaQuestionCircle, FaMoon, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp, FaChevronUp, FaArrowRight, FaBriefcase, FaChartBar, FaDollarSign, FaNewspaper, FaDownload } from 'react-icons/fa';
-import { useState, useEffect,  lazy, Suspense, useRef} from 'react';
+import { useState, useEffect,  lazy, Suspense, } from 'react';
 import { useTypewriter, Cursor} from 'react-simple-typewriter'
 import { ParallaxProvider } from "react-scroll-parallax";
 import SkillRadarChart from "./SkillRadarChart";
@@ -41,33 +41,6 @@ function App() {
   const [blogModalOpen, setBlogModalOpen] = useState(false);
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const smoothScroll = (e, target) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(target);
-    if (!targetElement) return;
-    
-    const headerOffset = 80; // Adjust based on your header height
-    const elementPosition = targetElement.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-  
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  };
-  
-  
-  // Function to handle all anchor clicks
-  const handleLinkClick = (e) => {
-    const target = e.target.getAttribute('href');
-    if (target && target.startsWith('#')) {
-      smoothScroll(e, target);
-      // Close side menu if it's open
-      if (sideMenuOpen) {
-        setSideMenuOpen(false);
-      }
-    }
-  };
   const portfolioProjects = [
     { id: 1, title: "E-commerce Platform", description: "An e-commerce platform with a modern design.", category: "Web Development" },
     { id: 2, title: "Portfolio Website", description: "A sleek portfolio website showcasing my skills.", category: "UI/UX Design" },
@@ -350,11 +323,11 @@ function App() {
           <p>Building the Future, One Line of Code at a Time</p>
         </div>
         <nav className='desktop-nav'>
-          <a href="#about" onClick={handleLinkClick}>About</a>
-          <a href="#portfolio" onClick={handleLinkClick}>Portfolio</a>
-          <a href="#pricing" onClick={handleLinkClick}>Pricing</a>
-          <a href="#faq" onClick={handleLinkClick}>FAQ</a>
-          <a href="#contact" onClick={handleLinkClick}>Contact</a>
+          <a href="#about">About</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
         </nav>
         {/* <button className="menu-bar">
           Menu
@@ -482,11 +455,11 @@ function App() {
 
       {/* Mobile Header */}
       <div className={`mobile-header ${isScrolled ? 'scrolled' : ''}`} >
-        <a href="#about" onClick={handleLinkClick}>About</a>
-        <a href="#portfolio" onClick={handleLinkClick}>Portfolio</a>
-        <a href="#pricing"  onClick={handleLinkClick}>Pricing</a>
-        <a href="#faq" onClick={handleLinkClick}>FAQ</a>
-        <a href="#contact" className='contact' onClick={handleLinkClick}>Contact</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#pricing" >Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" className='contact'>Contact</a>
       </div>
 
       {/* Landing Section */}
