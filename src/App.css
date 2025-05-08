@@ -428,7 +428,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
 .side-menu-nav h2 {
@@ -1304,7 +1304,8 @@ body {
   background: transparent;
   color: white;
   position: relative;
-  margin-top: -2rem;
+  margin-top: -1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .sidebar {
@@ -2553,7 +2554,7 @@ a:focus, button:focus {
     display: flex;
     flex-direction: row;
     /* justify-content: space-around; */
-    gap: 9rem;
+    gap: 13rem;
     text-align: center;
   }
 
