@@ -504,7 +504,15 @@ function App() {
             </p>
           )}
           <button onClick={toggleAbout} className="toggle-button text-red-600">
-            {showMoreAbout ? 'Show Less' : 'Read More'}
+          {showMoreAbout ? (
+                <>
+                  Show Less <FaChevronUp />
+                </>
+              ) : (
+                <>
+                  Read More <FaChevronDown />
+                </>
+              )}
           </button>
         </div>
       </section>

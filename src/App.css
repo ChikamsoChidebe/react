@@ -1260,8 +1260,84 @@ body {
   }
 }
 
+/* Stylish Read More Button */
+.toggle-button {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: red;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-radius: 30px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 1;
+}
 
+.toggle-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 30px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
 
+.toggle-button:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.toggle-button:hover {
+  color: #cc0000;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+}
+
+.toggle-button:active {
+  transform: scale(0.95);
+}
+
+.toggle-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, red, transparent);
+  transform: scaleX(0.5);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.toggle-button:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Add icon to the button */
+.toggle-button svg {
+  transition: transform 0.3s ease;
+}
+
+.toggle-button:hover svg {
+  transform: translateX(3px);
+}
+
+/* Contact Form Styles */
 .contact-form .success {
   color: green;
   font-size: 1rem;
