@@ -61,7 +61,7 @@ function App() {
     setFilteredProjects(portfolioProjects); // Show all projects by default
   }, []);
   let [text] = useTypewriter({
-    words: ['Hi, I am Chikamso Favour', 'Web Developer', 'UI/UX Designer', 'Tech Enthusiast', 'Freelancer'],
+    words: ['Chikamso Favour', 'A Web Developer', 'A UI/UX Designer', 'A Tech Enthusiast', 'A Freelancer'],
     loop: 0,
     typeSpeed: 50, // Faster typing speed
     deleteSpeed: 50, // Faster deleting speed
