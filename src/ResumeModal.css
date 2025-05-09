@@ -51,7 +51,7 @@
 
 .resume-modal-header {
   padding: 20px;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  background: linear-gradient(135deg, black, red);
   color: white;
   text-align: center;
 }
@@ -94,7 +94,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #4CAF50;
+  background-color: red;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -105,7 +105,7 @@
 }
 
 .download-button:hover {
-  background-color: #45a049;
+  background-color: darkred;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

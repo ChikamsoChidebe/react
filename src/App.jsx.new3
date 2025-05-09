@@ -1,5 +1,0 @@
-{/* Add the ResumeModal component at the end of your return statement */}
-<ResumeModal 
-  isOpen={resumeModalOpen} 
-  onClose={closeResumeModal} 
-/>
