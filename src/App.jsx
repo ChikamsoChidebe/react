@@ -92,6 +92,7 @@ function App() {
     // Replace with your actual resume file path
     window.open('resume.pdf', '_blank');
   };
+  
   // useEffect(() => {
   //   const cursor = document.querySelector(".custom-cursor");
 
