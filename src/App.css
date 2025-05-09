@@ -13,7 +13,7 @@
   width: 100%;
   z-index: 9999;
 }
-/* Add this to your App.css */
+Add this to your App.css
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px; /* Adjust based on your header height */
@@ -33,14 +33,14 @@ body {
   background: rgba(0, 0, 0, 0.05);
 }
 
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   background: rgba(255, 0, 0, 0.5);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 0, 0, 0.7);
-}
+} */
 
 /* Glowing Loader */
 .glowing-loader {
@@ -1625,7 +1625,7 @@ a {
 }
 
 a:hover {
-  color: #ffcc00; /* Brighter Yellow */
+  color: red; /* Brighter Yellow */
 }
 
 /* App Container */
@@ -1690,10 +1690,629 @@ a:hover {
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, black, red );
+  background: linear-gradient(180deg, black, red);
   color: white;
   text-align: center;
 }
+
+/* Hero Landing Section */
+.landing-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #000000, #1a0000, #2d0000);
+  color: white;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+
+/* Animated Background */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.animated-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255,0,0,0.15), rgba(0,0,0,0.3), rgba(255,0,0,0.2));
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Particle Effects */
+/* Enhanced Particle Effects */
+.particle-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8), rgba(255, 30, 30, 0.3));
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.3);
+  filter: blur(0.5px);
+  opacity: 0;
+  transform-style: preserve-3d;
+}
+
+/* Improved floating animation with 3D movement */
+@keyframes float {
+  0% { 
+    transform: translateY(0) translateX(0) translateZ(0) rotate(0); 
+    opacity: 0;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+  }
+  10% {
+    opacity: 0.2;
+  }
+  50% { 
+    opacity: 0.8;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.4);
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% { 
+    transform: translateY(-150px) translateX(30px) translateZ(50px) rotate(360deg); 
+    opacity: 0;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+  }
+}
+
+/* Alternate animation for more variety */
+@keyframes floatAlt {
+  0% { 
+    transform: translateY(100px) translateX(0) scale(0.2); 
+    opacity: 0;
+    filter: blur(2px);
+  }
+  20% {
+    opacity: 0.4;
+    filter: blur(0.5px);
+  }
+  60% { 
+    opacity: 0.9;
+    filter: blur(0px);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.4);
+  }
+  80% {
+    opacity: 0.4;
+    filter: blur(0.5px);
+  }
+  100% { 
+    transform: translateY(-50px) translateX(50px) scale(1.2); 
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
+
+/* Pulsating glow animation */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 40px rgba(255, 0, 0, 0.4); }
+  100% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.2); }
+}
+
+/* Enhanced particles with varied sizes, colors, and animations */
+.particle-1 { 
+  width: 12px; height: 12px; 
+  left: 10%; top: 20%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 50, 50, 0.4));
+  animation: float 8s infinite ease-in-out, pulse-glow 4s infinite; 
+}
+.particle-2 { 
+  width: 18px; height: 18px; 
+  left: 20%; top: 80%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 100, 100, 0.5));
+  animation: floatAlt 12s infinite ease-in-out, pulse-glow 6s infinite; 
+}
+.particle-3 { 
+  width: 8px; height: 8px; 
+  left: 30%; top: 30%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 30, 30, 0.3));
+  animation: float 9s infinite ease-in-out, pulse-glow 3s infinite; 
+}
+.particle-4 { 
+  width: 14px; height: 14px; 
+  left: 40%; top: 70%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 70, 70, 0.4));
+  animation: floatAlt 10s infinite ease-in-out, pulse-glow 5s infinite; 
+}
+.particle-5 { 
+  width: 9px; height: 9px; 
+  left: 50%; top: 40%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 40, 40, 0.3));
+  animation: float 11s infinite ease-in-out, pulse-glow 4s infinite; 
+}
+.particle-6 { 
+  width: 16px; height: 16px; 
+  left: 60%; top: 60%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 90, 90, 0.5));
+  animation: floatAlt 14s infinite ease-in-out, pulse-glow 7s infinite; 
+}
+.particle-7 { 
+  width: 7px; height: 7px; 
+  left: 70%; top: 50%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 20, 20, 0.3));
+  animation: float 7s infinite ease-in-out, pulse-glow 3.5s infinite; 
+}
+.particle-8 { 
+  width: 11px; height: 11px; 
+  left: 80%; top: 30%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 60, 60, 0.4));
+  animation: floatAlt 13s infinite ease-in-out, pulse-glow 6.5s infinite; 
+}
+.particle-9 { 
+  width: 13px; height: 13px; 
+  left: 90%; top: 70%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 80, 80, 0.5));
+  animation: float 15s infinite ease-in-out, pulse-glow 7.5s infinite; 
+}
+.particle-10 { 
+  width: 15px; height: 15px; 
+  left: 15%; top: 45%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 110, 110, 0.6));
+  animation: floatAlt 16s infinite ease-in-out, pulse-glow 8s infinite; 
+}
+.particle-11 { 
+  width: 10px; height: 10px; 
+  left: 25%; top: 55%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 50, 50, 0.4));
+  animation: float 9s infinite ease-in-out, pulse-glow 4.5s infinite; 
+}
+.particle-12 { 
+  width: 12px; height: 12px; 
+  left: 35%; top: 85%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 70, 70, 0.5));
+  animation: floatAlt 12s infinite ease-in-out, pulse-glow 6s infinite; 
+}
+.particle-13 { 
+  width: 8px; height: 8px; 
+  left: 45%; top: 15%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 30, 30, 0.3));
+  animation: float 10s infinite ease-in-out, pulse-glow 5s infinite; 
+}
+.particle-14 { 
+  width: 14px; height: 14px; 
+  left: 55%; top: 75%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 90, 90, 0.5));
+  animation: floatAlt 14s infinite ease-in-out, pulse-glow 7s infinite; 
+}
+.particle-15 { 
+  width: 11px; height: 11px; 
+  left: 65%; top: 25%; 
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 60, 60, 0.4));
+  animation: float 11s infinite ease-in-out, pulse-glow 5.5s infinite; 
+}
+
+/* Add star-shaped particles for extra visual interest */
+.star-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 0, 0, 0.6);
+  animation: twinkle 4s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+/* Add this after your animated-gradient class */
+.shimmer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 200%;
+  animation: shimmer 10s infinite linear;
+  z-index: 2;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Glass Effect Header */
+.header2.glass-effect {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 2rem;
+  z-index: 10;
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Pulse Effect for Logo */
+.pulse-effect {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Hero Container */
+.hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  flex: 1;
+}
+
+/* Title Styling */
+.title-container {
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.greeting {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.name-highlight {
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffffff, red);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+/* Add this after your .animated-gradient class */
+.texture-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ff0000' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  opacity: 0.4;
+  z-index: 1;
+}
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 0, 0, 0.4), rgba(0, 0, 0, 0.3));
+}
+.image-frame {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+.tech-badge:hover {
+  background: rgba(255, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+.header2.glass-effect {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: rgba(20, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  z-index: 10;
+}
+
+
+/* Description Styling */
+.hero-description {
+  max-width: 600px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
+/* Tech Stack Badges */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tech-badge {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* CTA Buttons */
+.cta-container {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.primary-cta, .secondary-cta {
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-cta {
+  background: red;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 62, 85, 0.4);
+}
+
+.primary-cta:hover {
+  background: red;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 62, 85, 0.6);
+}
+
+.secondary-cta {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.secondary-cta:hover {
+  border-color: white;
+  transform: translateY(-3px);
+}
+
+/* Image Styling */
+.landing-visual {
+  position: relative;
+  z-index: 2;
+}
+
+.image-frame {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.image-frame:hover {
+  transform: translateY(-10px) rotate(2deg);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.4);
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.image-frame:hover img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 62, 85, 0.3), transparent);
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: #e65c50;
+  transform: translateY(-5px) rotate(10deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+.scroll-indicator span {
+  margin-bottom: 0.5rem;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-title, .title-container {
+    align-items: center;
+  }
+  
+  .tech-stack, .cta-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .greeting {
+    font-size: 1.5rem;
+  }
+  
+  .image-frame {
+    width: 280px;
+    height: 280px;
+  }
+  .social-icons {
+    display: none;
+  }
+  .scroll-indicator{
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .cta-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .image-frame {
+    width: 250px;
+    height: 250px;
+  }
+  .social-icons {
+    display: none;
+  }
+}
+
 
 .landing-content {
   max-width: 600px;

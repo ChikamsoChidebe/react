@@ -477,15 +477,80 @@ function App() {
         </button>
       </header>
 
-        <div className="landing-content">
-          <h1><span>{text}</span><Cursor cursorColor='red'/> </h1>
-          <p>A passionate full-stack web developer creating modern, scalable, and user-friendly applications.</p>
-          <a href="#portfolio" className="cta-button">Explore My Work</a> {/* Updated to use an anchor link */}
-        </div>
-        <div className="landing-visual">
-          <img src="me4.JPG" alt="Chikamso" loading="lazy" />
-        </div>
-      </section>
+        {/* Landing Section */}
+      <section className="landing-hero fade-in" data-aos="fade-up">
+            <div className="hero-background">
+              <div className="animated-gradient"></div>
+              <div className="texture-overlay"></div>
+              <div className="particle-container">
+                {[...Array(15)].map((_, i) => (
+                  <div key={i} className={`particle particle-${i + 1}`}></div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Header2 */}
+            {/* <header className="header2 glass-effect">
+              <div className="logo1">
+                <h1><Fa500Px className='rotating-icon pulse-effect'/></h1>
+              </div>
+              <button className="menu-toggle glass-button" onClick={toggleSideMenu} aria-label="Toggle menu">
+                <FaBars />
+              </button>
+            </header> */}
+
+            <div className="hero-container">
+              <div className="landing-content">
+                <div className="title-container">
+                  <h1 className="hero-title">
+                    <span className="greeting">Hello, I'm </span>
+                    <span className="name-highlight">{text}<Cursor cursorColor='#ff3e55'/></span>
+                  </h1>
+                </div>
+                
+                <div className="hero-description">
+                  <p className="tagline">A passionate full-stack web developer crafting modern, scalable, and user-friendly digital experiences.</p>
+                  
+                  <div className="tech-stack">
+                    <span className="tech-badge">React</span>
+                    <span className="tech-badge">Node.js</span>
+                    <span className="tech-badge">MongoDB</span>
+                    <span className="tech-badge">Express</span>
+                  </div>
+                  
+                  <div className="cta-container">
+                    <a href="#portfolio" className="primary-cta">Explore My Work</a>
+                    <a href="#contact" className="secondary-cta">Let's Connect</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="landing-visual">
+                <div className="image-frame">
+                  <img src="me4.JPG" alt="Chikamso" loading="lazy" />
+                  <div className="image-overlay"></div>
+                </div>
+                <div className="social-icons">
+                  <a href="https://github.com/ChikamsoChidebe" target="_blank" rel="noopener noreferrer" className="social-icon">
+                    <FaGithub />
+                  </a>
+                  <a href="https://linkedin.com/in/Chidebe-Chikamso" target="_blank" rel="noopener noreferrer" className="social-icon">
+                    <FaLinkedin />
+                  </a>
+                  <a href="mailto:chikamsochidebe@gmail.com" className="social-icon">
+                    <FaEnvelope />
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div className="scroll-indicator">
+              <span>Scroll Down</span>
+              <FaChevronDown className="bounce" />
+            </div>
+          </section>
+        </section>
+
 
       {/* About Me Section */}
       <main role="main">
