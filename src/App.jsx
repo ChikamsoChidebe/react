@@ -433,7 +433,7 @@ function App() {
       <a href="https://github.com/ChikamsoChidebe" target="_blank" rel="noopener noreferrer">
         <FaGithub />
       </a>
-      <a href="https://linkedin.com/in/chidebe-chikamso" target="_blank" rel="noopener noreferrer">
+      <a href="https://linkedin.com/in/Chidebe-Chikamso" target="_blank" rel="noopener noreferrer">
         <FaLinkedin />
       </a>
       <a href="mailto:chikamsochidebe@gmail.com">
@@ -483,7 +483,7 @@ function App() {
           <a href="#portfolio" className="cta-button">Explore My Work</a> {/* Updated to use an anchor link */}
         </div>
         <div className="landing-visual">
-          <img src="me3.jpg" alt="Custom Illustration" loading="lazy" />
+          <img src="me4.JPG" alt="Chikamso" loading="lazy" />
         </div>
       </section>
 
@@ -877,7 +877,7 @@ function App() {
           <a href="mailto:chikamsochidebe@gmail.com">
             <FaEnvelope /> Email Me 
           </a>
-          <a href="https://linkedin.com/in/chidebe-chikamso" target="_blank" rel="noopener noreferrer">
+          <a href="https://linkedin.com/in/Chidebe-Chikamso" target="_blank" rel="noopener noreferrer">
             <FaLinkedin /> LinkedIn
           </a>
           <a href="https://github.com/ChikamsoChidebe" target="_blank" rel="noopener noreferrer">
