@@ -1,0 +1,10 @@
+  const downloadResume = () => {
+    // Open the resume modal instead of directly downloading
+    setResumeModalOpen(true);
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+  };
+  
+  const closeResumeModal = () => {
+    setResumeModalOpen(false);
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  };
