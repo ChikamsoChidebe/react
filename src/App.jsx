@@ -90,7 +90,7 @@ function App() {
 
   const downloadResume = () => {
     // Replace with your actual resume file path
-    window.open('/path-to-your-resume.pdf', '_blank');
+    window.open('resume.pdf', '_blank');
   };
   // useEffect(() => {
   //   const cursor = document.querySelector(".custom-cursor");
