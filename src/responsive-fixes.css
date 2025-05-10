@@ -1,0 +1,63 @@
+/* Responsive fixes for landing section and contact icons */
+
+/* Fix for social icons in contact section */
+.contact-links a svg {
+  font-size: 2rem;
+  color: red;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.social-icon {
+  color: white !important;
+}
+
+/* Mobile responsiveness fixes for landing section */
+@media (max-width: 992px) {
+  .hero-container {
+    padding-top: 0;
+  }
+  
+  .landing-hero {
+    min-height: auto;
+    padding: 2rem 1rem 3rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-hero {
+    min-height: auto;
+    padding: 1rem 1rem 3rem 1rem;
+  }
+  
+  .hero-container {
+    padding-top: 0;
+  }
+  
+  .social-icons {
+    display: flex !important;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .header2 {
+    display: flex !important;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-icons {
+    display: flex !important;
+  }
+  
+  .image-frame {
+    margin-top: -2rem;
+  }
+  
+  /* Fix for the landing section on very small screens */
+  .landing-hero {
+    padding-top: 0;
+  }
+}

@@ -1,3 +1,5 @@
+import { styleEffect } from "framer-motion";
+
 // Blog data with high-quality content
 export const blogPosts = [
   {
@@ -61,7 +63,7 @@ export const blogPosts = [
     id: 4,
     title: "Integrating AI into Modern Web Applications",
     excerpt: "How to leverage artificial intelligence to create smarter, more personalized web experiences for your users.",
-    image: "https://tse1.mm.bing.net/th/id/OIP.woYEdAl1N9OMblDdjipv6wHaLH?rs=1&pid=ImgDetMain",
+    image: "https://tse3.mm.bing.net/th/id/OIP.BOWNzrOVVGG2dkP9_gSBEQHaFk?rs=1&pid=ImgDetMain",
     date: "03 Mar 2024",
     author: "Chidebe Chikamso",
     authorImage: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=634&q=80",
@@ -97,3 +99,4 @@ export const blogPosts = [
 ];
 
 export default blogPosts;
+

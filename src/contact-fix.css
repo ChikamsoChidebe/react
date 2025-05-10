@@ -1,0 +1,52 @@
+/* Contact section fixes */
+.contact-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0.5rem;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-links a:hover {
+  transform: scale(1.1);
+  color: red;
+}
+
+.contact-links a svg {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: red;
+}
+
+/* Landing section responsive fixes */
+@media (max-width: 768px) {
+  .landing-hero {
+    min-height: auto;
+    padding: 1rem 1rem 3rem 1rem;
+  }
+  
+  .hero-container {
+    padding-top: 0;
+  }
+  
+  .social-icons {
+    display: flex !important;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    color: white !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-icons {
+    display: flex !important;
+  }
+}

@@ -1,20 +1,13 @@
 import './App.css';
-import './responsive-fixes.css'; // Import responsive fixes
-import './ModernContactForm'; // Import modern contact form styles
-import ModernPricingSection from './ModernPricingSection';
-import ModernAchievements from './ModernAchievements';
-import './modern-achievements.css';
-import './ModernFAQ';
-import './modern-faq.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
-import './modern-contact.css';
 import ContactForm from "./ContactForm";
 import SearchBar from './SearchBar';
+import CountUp from 'react-countup';
 import BlogModal from './BlogModal';
 import blogPosts from './blogData';
 import { FaCalendarAlt, FaUser, FaTag } from 'react-icons/fa';
-import { FaGithub, FaLinkedin, FaHome, FaQuestionCircle, FaMoon, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp, FaChevronUp, FaArrowRight, FaBriefcase, FaChartBar, FaDollarSign, FaNewspaper, FaDownload, FaShieldAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaHome, FaQuestionCircle, FaMoon, FaEnvelope, FaPhone, FaStar, FaChevronDown, FaBars, FaTimes, Fa500Px, FaFacebook, FaFacebookF, FaWhatsapp, FaChevronUp, FaArrowRight, FaBriefcase, FaChartBar, FaDollarSign, FaNewspaper, FaDownload } from 'react-icons/fa';
 import { useState, useEffect,  lazy, Suspense, } from 'react';
 import { useTypewriter, Cursor} from 'react-simple-typewriter'
 import { ParallaxProvider } from "react-scroll-parallax";
@@ -25,7 +18,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow'; // Import coverflow effect
 import { AnimatePresence, motion } from "framer-motion";
-import { Pagination, EffectCoverflow, Autoplay } from 'swiper/modules';
+import { Pagination, EffectCoverflow, Autoplay, Navigation } from 'swiper/modules';
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { FaCode, FaLaptopCode, FaProjectDiagram } from "react-icons/fa";
@@ -33,8 +26,6 @@ import { FaCode, FaLaptopCode, FaProjectDiagram } from "react-icons/fa";
 import AIChat from "./AIChat";
 import AnimatedResume from './AnimatedResume';
 import ResumeModal from './ResumeModal'; 
-import ModernContactForm from './ModernContactForm';
-import ModernFAQ from './ModernFAQ';
 
 function App() {
   const [showChat, setShowChat] = useState(false);
@@ -598,8 +589,41 @@ function App() {
       </section>
 
       {/* Stats Section */}
-      <ModernAchievements />
-
+      <section id="stats" className="section fade-in" data-aos="fade-left">
+        <h2>My Achievements</h2>
+        <div className="stats-grid">
+          <div className="stat-item">
+            <h3>{projectCount}+</h3>
+            <p>Projects Completed</p>
+            <div className="status-bar">
+              <div
+                className="status-bar-fill"
+                style={{ width: `${(projectCount / 50) * 100}%` }}
+              ></div>
+            </div>
+          </div>
+          <div className="stat-item">
+            <h3>{orderCount}+</h3>
+            <p>Orders Delivered</p>
+            <div className="status-bar">
+              <div
+                className="status-bar-fill"
+                style={{ width: `${(orderCount / 120) * 100}%` }}
+              ></div>
+            </div>
+          </div>
+          <div className="stat-item">
+            <h3>{yearCount}+</h3>
+            <p>Years Experience</p>
+            <div className="status-bar">
+              <div
+                className="status-bar-fill"
+                style={{ width: `${(yearCount / 3) * 100}%` }}
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Work Portfolio Section */}
       <section id="portfolio" className="section fade-in" data-aos="fade-up">
@@ -713,21 +737,6 @@ function App() {
             <button className="hire-button" onClick={() => window.location.href = '#contact'}  tabIndex="0" aria-label="Hire me through the contact section">Hire Me</button>
           </div>
         </div>
-         <motion.div 
-          className="pricing-guarantee"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <div className="guarantee-icon">
-            <FaShieldAlt />
-          </div>
-          <h3>100% Satisfaction Guarantee</h3>
-          <p>
-            I'm committed to delivering high-quality work that exceeds your expectations. 
-            If you're not completely satisfied with the results, I'll work with you until you are.
-          </p>
-        </motion.div>
       </section>
 
       {/* Blog Section */}
@@ -781,35 +790,317 @@ function App() {
   isOpen={blogModalOpen} 
   onClose={closeBlogModal} 
 />
-  <section id="testimonials1" className="section fade-in" data-aos="fade-up">
-  <h2>What People Say</h2>
-  <div className="testimonials-grid">
-    <div className="testimonial-card">
-      <p className="stars">
-        <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
-      </p>
-      <blockquote><p>"Chidebe is an exceptional developer! Delivered beyond expectations."</p></blockquote>
-      <cite>- John Smith</cite>
-    </div>
-    <div className="testimonial-card">
-      <p className="stars">
-        <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
-      </p>
-      <p>"Chikamso gives amazing work! Highly recommended."</p>
-      <cite>- McDonald Swift</cite>
-    </div>
-    <div className="testimonial-card">
-      <p className="stars">
-        <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
-      </p>
-      <p>"Professional and timely delivery."</p>
-      <cite>- Kolade Abiodun</cite>
-    </div>
-  </div>
-</section> 
+  
+    <section id="testimonials1" className="section fade-in" data-aos="fade-up">
+      <div className="section-subtitle">What my clients are saying</div>
+      <Swiper
+        modules={[Autoplay, EffectCoverflow, Navigation, Pagination]} 
+        effect="coverflow"
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={3}
+        spaceBetween={30}
+        loop={true}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+          reverseDirection: false
+        }}
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }}
+        pagination={{
+          clickable: true,
+          dynamicBullets: true
+        }}
+        coverflowEffect={{
+          rotate: 35,
+          stretch: 0,
+          depth: 200,
+          modifier: 1.5,
+          slideShadows: true
+        }}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          }
+        }}
+        className="modern-testimonials-swiper"
+      >
+        <SwiperSlide>
+          <div className="testimonial-card glass-effect hover:scale-105 transition-transform">
+            <div className="testimonial-header">
+              <img src="avatar1.jpg" alt="John Smith" className="client-avatar hover:rotate-6" />
+              <div className="client-info">
+                <h4 className="text-xl font-bold">John Smith</h4>
+                <p className="client-role text-gray-600">CEO, TechCorp</p>
+              </div>
+            </div>
+            <div className="rating flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="star-icon text-yellow-400 animate-pulse" />
+              ))}
+            </div>
+            <blockquote className="mt-4">
+              <p className="italic">"Working with Chidebe was transformative for our project. His technical expertise and innovative solutions exceeded our expectations."</p>
+            </blockquote>
+            <div className="testimonial-footer mt-4">
+              <span className="project-type bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Web Application Development</span>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        {/* Additional New Slides */}
+        <SwiperSlide>
+          <div className="testimonial-card glass-effect hover:scale-105 transition-transform">
+            <div className="testimonial-header">
+              <img src="avatar7.jpg" alt="Alex Thompson" className="client-avatar hover:rotate-6" />
+              <div className="client-info">
+                <h4 className="text-xl font-bold">Alex Thompson</h4>
+                <p className="client-role text-gray-600">Lead Developer, CodeCraft</p>
+              </div>
+            </div>
+            <div className="rating flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="star-icon text-yellow-400 animate-pulse" />
+              ))}
+            </div>
+            <blockquote className="mt-4">
+              <p className="italic">"Exceptional problem-solving abilities and a true team player. Delivered high-quality code consistently."</p>
+            </blockquote>
+            <div className="testimonial-footer mt-4">
+              <span className="project-type bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">API Development</span>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className="testimonial-card glass-effect hover:scale-105 transition-transform">
+            <div className="testimonial-header">
+              <img src="avatar8.jpg" alt="Rachel Kim" className="client-avatar hover:rotate-6" />
+              <div className="client-info">
+                <h4 className="text-xl font-bold">Rachel Kim</h4>
+                <p className="client-role text-gray-600">UX Director, DesignHub</p>
+              </div>
+            </div>
+            <div className="rating flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="star-icon text-yellow-400 animate-pulse" />
+              ))}
+            </div>
+            <blockquote className="mt-4">
+              <p className="italic">"Brought our design vision to life perfectly. Great attention to detail and user experience."</p>
+            </blockquote>
+            <div className="testimonial-footer mt-4">
+              <span className="project-type bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">UI/UX Design</span>
+            </div>
+          </div>
+        </SwiperSlide>
 
 
-      <section id="testimonials" className="section fade-in" data-aos="fade-up">
+       <SwiperSlide>
+          <div className="testimonial-card glass-effect">
+            <div className="testimonial-header">
+              <img src="avatar1.jpg" alt="John Smith" className="client-avatar" />
+              <div className="client-info">
+                <h4>John Smith</h4>
+                <p className="client-role">CEO, TechCorp</p>
+              </div>
+            </div>
+            <div className="rating">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="star-icon animate-pulse" />
+              ))}
+            </div>
+            <blockquote>
+              <p>"Working with Chidebe was transformative for our project. His technical expertise and innovative solutions exceeded our expectations."</p>
+            </blockquote>
+            <div className="testimonial-footer">
+              <span className="project-type">Web Application Development</span>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className="testimonial-card glass-effect">
+            <div className="testimonial-header">
+              <img src="avatar2.jpg" alt="Sarah Johnson" className="client-avatar" />
+              <div className="client-info">
+                <h4>Sarah Johnson</h4>
+                <p className="client-role">Product Manager</p>
+              </div>
+            </div>
+            <div className="rating">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="star-icon animate-pulse" />
+              ))}
+            </div>
+            <blockquote>
+              <p>"Incredible attention to detail and creative problem-solving. The end result was exactly what we envisioned and more."</p>
+            </blockquote>
+            <div className="testimonial-footer">
+              <span className="project-type">E-commerce Platform</span>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className="testimonial-card glass-effect">
+            <div className="testimonial-header">
+              <img src="avatar3.jpg" alt="Michael Chen" className="client-avatar" />
+              <div className="client-info">
+                <h4>Michael Chen</h4>
+                <p className="client-role">Startup Founder</p>
+              </div>
+            </div>
+            <div className="rating">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="star-icon animate-pulse" />
+              ))}
+            </div>
+            <blockquote>
+              <p>"Outstanding communication and project management. Delivered a complex project on time and within budget."</p>
+            </blockquote>
+            <div className="testimonial-footer">
+              <span className="project-type">SaaS Development</span>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className="testimonial-card glass-effect">
+            <div className="testimonial-header">
+              <img src="avatar4.jpg" alt="Emily Davis" className="client-avatar" />
+              <div className="client-info">
+                <h4>Emily Davis</h4>
+                <p className="client-role">Marketing Director</p>
+              </div>
+            </div>
+            <div className="rating">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="star-icon animate-pulse" />
+              ))}
+            </div>
+            <blockquote>
+              <p>"Transformed our digital presence with a beautiful, functional website that perfectly represents our brand."</p>
+            </blockquote>
+            <div className="testimonial-footer">
+              <span className="project-type">Brand Website</span>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className="testimonial-card glass-effect">
+            <div className="testimonial-header">
+              <img src="avatar5.jpg" alt="David Wilson" className="client-avatar" />
+              <div className="client-info">
+                <h4>David Wilson</h4>
+                <p className="client-role">CTO, InnovateTech</p>
+              </div>
+            </div>
+            <div className="rating">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="star-icon animate-pulse" />
+              ))}
+            </div>
+            <blockquote>
+              <p>"Exceptional problem-solving skills and technical knowledge. Delivered beyond our expectations."</p>
+            </blockquote>
+            <div className="testimonial-footer">
+              <span className="project-type">Enterprise Solutions</span>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className="testimonial-card glass-effect">
+            <div className="testimonial-header">
+              <img src="avatar6.jpg" alt="Jessica Lee" className="client-avatar" />
+              <div className="client-info">
+                <h4>Jessica Lee</h4>
+                <p className="client-role">Creative Director</p>
+              </div>
+            </div>
+            <div className="rating">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="star-icon animate-pulse" />
+              ))}
+            </div>
+            <blockquote>
+              <p>"An absolute pleasure to work with. Brought creative solutions to complex challenges."</p>
+            </blockquote>
+            <div className="testimonial-footer">
+              <span className="project-type">Creative Portfolio</span>
+            </div>
+          </div>
+        </SwiperSlide>
+
+      </Swiper>
+      
+      <div className="testimonial-stats grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div className="stat bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg transform hover:scale-105 transition-all">
+          <h3 className="text-4xl font-bold text-blue-600 mb-2">
+            <CountUp
+              start={0}
+              end={100}
+              duration={3.5}
+              suffix="+"
+              enableScrollSpy
+              scrollSpyOnce
+              className="counter-animation"
+            />
+          </h3>
+          <p className="text-blue-800 text-lg font-medium">Happy Clients</p>
+        </div>
+        <div className="stat bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl shadow-lg transform hover:scale-105 transition-all">
+          <h3 className="text-4xl font-bold text-green-600 mb-2">
+            <CountUp
+              start={0}
+              end={95}
+              duration={3.5}
+              suffix="%"
+              enableScrollSpy
+              scrollSpyOnce
+              className="counter-animation"
+            />
+          </h3>
+          <p className="text-green-800 text-lg font-medium">Success Rate</p>
+        </div>
+        <div className="stat bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl shadow-lg transform hover:scale-105 transition-all">
+          <h3 className="text-4xl font-bold text-purple-600 mb-2">
+            <CountUp
+              start={0}
+              end={4.9}
+              duration={3.5}
+              decimals={1}
+              suffix="/5"
+              enableScrollSpy
+              scrollSpyOnce
+              className="counter-animation"
+            />
+          </h3>
+          <p className="text-purple-800 text-lg font-medium">Average Rating</p>
+        </div>
+      </div>
+    </section>       
+
+    <section id="testimonials" className="section fade-in" data-aos="fade-up">
       <h2>What People Say</h2>
       <div className="responsive-swiper">
         <Swiper
@@ -906,10 +1197,27 @@ function App() {
       
 
       {/* FAQ Section */}
-      <ModernFAQ/>
+      <section id="faq" className="section fade-in" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="300">
+        <h2>Frequently Asked Questions</h2>
+        <div className="faq">
+          {[
+            { question: 'What services do you offer?', answer: 'I offer full-stack web development, UI/UX design, and consulting services.' },
+            { question: 'What technologies do you specialize in?', answer: 'I specialize in React, Javascript, CSS, and modern front-end frameworks.' },
+            { question: 'How can I hire you?', answer: 'You can hire me by selecting a pricing plan or contacting me directly through the contact section.' },
+          ].map((faq, index) => (
+            <div key={index} className="faq-item">
+              <div className="faq-question" onClick={() => toggleFaq(index)}>
+                <h3>{faq.question}</h3>
+                <FaChevronDown className={`faq-icon ${faqOpen === index ? 'open' : ''}`} />
+              </div>
+              {faqOpen === index && <p className="faq-answer">{faq.answer}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Contact Section */}
-      {/* <section id="contacts" className="section fade-in" data-aos="fade-left">
+      <section id="contact" className="section fade-in" data-aos="fade-left">
         <h2>Contact Me</h2>
         <p>Feel free to reach out to me through any of the channels below:</p>
         <div className="contact-links" >
@@ -933,7 +1241,7 @@ function App() {
             <FaPhone /> Call Me
           </a>
         </div>
-      </section>  */}
+      </section>
 
           {/* Toggle Button */}
           {/* <button
@@ -951,7 +1259,7 @@ function App() {
           )} */}
     </main>
 
-       <ModernContactForm/>
+       {/* <ContactForm /> */}
 
       <footer className="footer fade-in" data-aos="fade-up">
         <p>&copy; 2025 Chidebe Chikamso. All rights reserved.</p>

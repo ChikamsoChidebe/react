@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -43,7 +44,29 @@ function ContactForm() {
   return (
     <section id="contact" className="section fade-in" data-aos="fade-left">
       <h2>Contact Me</h2>
-      <p>Feel free to reach out to me through this form:</p>
+      <p>Feel free to reach out to me through any of these channels:</p>
+      
+      {/* Contact Links with Visible Icons */}
+      <div className="contact-links">
+        <a href="https://github.com/ChikamsoChidebe" target="_blank" rel="noopener noreferrer">
+          <FaGithub />
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/Chidebe-Chikamso" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin />
+          LinkedIn
+        </a>
+        <a href="mailto:chikamsochidebe@gmail.com">
+          <FaEnvelope />
+          Email
+        </a>
+        <a href="https://wa.me/2349039220171" target="_blank" rel="noopener noreferrer">
+          <FaWhatsapp />
+          WhatsApp
+        </a>
+      </div>
+      
+      <p>Or send me a message directly:</p>
       <form className="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
