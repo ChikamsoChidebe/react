@@ -33,7 +33,7 @@ Francify is a modern, feature-rich e-commerce platform built with React and Tail
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/francify.git
+   git clone https://github.com/ChikamsoChidebe/francify.git
    cd francify
    ```
 

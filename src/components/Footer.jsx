@@ -140,7 +140,7 @@ const Footer = () => {
           </div>
           
           <p className="text-center text-gray-400">
-            &copy; {currentYear} <span className="text-red-600">Francify</span>. All rights reserved.
+            &copy; {currentYear} <span className="text-red-600">Francify</span>. All Rights Reserved.
           </p>
         </div>
       </div>
