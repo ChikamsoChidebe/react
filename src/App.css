@@ -2418,7 +2418,35 @@ a:hover {
     margin: 0 auto;
   }
 }
+/* Center the scroll-indicator for all screens */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 10;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-align: center;
+}
 
+/* Ensure it's centered on mobile as well */
+@media (max-width: 600px) {
+  .scroll-indicator {
+    left: 5rem;
+    transform: translateX(-50%);
+    bottom: 2rem;
+    text-align: center;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 /* Show header2 on mobile and fix spacing */
 @media (max-width: 768px) {
