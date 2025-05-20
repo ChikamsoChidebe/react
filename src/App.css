@@ -2399,7 +2399,6 @@ a:hover {
   .landing-hero {
     width: 100vw;
     min-height: 100vh;
-    padding: 0 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2419,6 +2418,8 @@ a:hover {
     margin: 0 auto;
   }
 }
+
+
 /* Show header2 on mobile and fix spacing */
 @media (max-width: 768px) {
   .header2 {
