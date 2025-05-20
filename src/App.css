@@ -2310,7 +2310,6 @@ a:hover {
   .landing-hero{
     min-height: 120vh;
     position: relative;
-    left: -1.8rem;
   }
   .image-frame{
     position: relative;
@@ -2380,6 +2379,81 @@ a:hover {
   max-width: 600px;
   margin: 1rem;
 }
+
+/* Responsive Landing Section for Mobile */
+.landing,
+.landing-hero {
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .landing,
+  .landing-hero {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .landing-content,
+  .hero-container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .landing-visual {
+    margin: 0 auto;
+  }
+}
+/* Show header2 on mobile and fix spacing */
+@media (max-width: 768px) {
+  .header2 {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem; /* Reduce gap for mobile */
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: white;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    z-index: 1001;
+  }
+  .logo1 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: red;
+    padding-top: 0.5rem;
+  }
+  .menu-toggle, .menu-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: auto;
+  }
+}
 @media screen and (max-width: 810px) {
   .image-frame{
     position: relative;
@@ -2402,6 +2476,7 @@ a:hover {
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
+
 
 .cta-button {
   background: red;
@@ -3315,6 +3390,84 @@ a:focus, button:focus {
   border-radius: 8px;
   cursor: pointer;
   position: relative;
+}
+
+/* Header2: Add margin-top and fix right padding for mobile */
+@media (max-width: 768px) {
+  .header2 {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    width: 100vw;
+    padding: 1.2rem 1.2rem 0.5rem 1.2rem; /* More padding on left/right, top margin */
+    margin-top: 18px; /* Push header down a bit */
+    background: transparent;
+    color: white;
+    position: relative;
+    z-index: 1001;
+    box-sizing: border-box;
+  }
+  .logo1 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: red;
+    padding-top: 0.2rem;
+  }
+  .menu-toggle, .menu-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: auto;
+    padding-right: 0; /* Remove extra right padding */
+  }
+}
+
+/* Make landing and landing-hero fill viewport and center content */
+.landing,
+.landing-hero {
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .landing,
+  .landing-hero {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .landing-content,
+  .hero-container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .landing-visual {
+    margin: 0 auto;
+  }
 }
 
 .menu-bar:hover .dropdown-links {
