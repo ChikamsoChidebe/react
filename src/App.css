@@ -2325,7 +2325,7 @@ a:hover {
    .landing-hero{
     min-height: 120vh;
     position: relative;
-    left: -1.2rem;
+    /* : -1.2rem; */
   }
 }
 
@@ -2333,7 +2333,7 @@ a:hover {
   .landing-hero{
     min-height: 120vh;
     position: relative;
-    left: -1.5rem;
+    /* left: -1.5rem; */
   }
   .logo1{
     position: relative;
@@ -2349,7 +2349,7 @@ a:hover {
   .landing-hero{
     min-height: 120vh;
     position: relative;
-    left: -1.9rem;
+    /* left: -1.9rem; */
   }
   .logo1{
     position: relative;
